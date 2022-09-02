@@ -1,92 +1,61 @@
 import './App.css';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Header from './ui/Header';
 import Footer, { FooterStatus } from './ui/Footer';
 import TabList from './ui/TabList';
 import FileViewer, { ViewModes } from './viewer/FileViewer';
 
-import examples from './sources/examples.js';
+import examples from './sources/examples';
+import { AskForUrl } from './util/UserInput';
+import BeerJSON from './sources/BeerJson';
 
-async function AskUrl() {
-  // example: https://raw.githubusercontent.com/beerjson/beerjson/master/tests/real/KettleSour.json
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(prompt('Enter BeerJSON file URL. If Github, use raw version'));
-    }, 0);
-  });
-}
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+export default function App() {
+  const [files, setFiles] = useState([]);
+  const [active, setActive] = useState(null);
+  const [mode, setMode] = useState(ViewModes.json);
+  const [status, setStatus] =  useState(FooterStatus.green);
 
-    this.state = {
-      files: [],
-      active: null,
-      mode: ViewModes.json,
-      status: FooterStatus.green,
-    };
-
-    this.handleFileChange = this.handleFileChange.bind(this);
-    this.handleModeChange = this.handleModeChange.bind(this);
-    this.handleNewFile = this.handleNewFile.bind(this);
-  }
-
-  componentDidMount() {
+  useEffect(() => {
     const files = examples; // Fetch list of files
 
-    this.setState({
-      files: files,
-      active: files[0].id,
-    });
-  }
+    setFiles(files);
+    setActive(files[0].id);
+    setStatus(FooterStatus.green);
+  }, []);
 
-  handleFileChange(active) { this.setState({active: active}); }
-  handleModeChange(mode) { this.setState({mode: mode}); }
+  const handleFileChange = active => setActive(active);
+  const handleModeChange = mode => setMode(mode);
+  const handleNewFile = () => (async () => {
+      // example: https://raw.githubusercontent.com/beerjson/beerjson/master/tests/real/KettleSour.json
+      const url = await AskForUrl('Enter BeerJSON file URL. If Github, use raw version');
+      const beerJson = await BeerJSON.fromUrl(url);
 
-  handleNewFile() { 
-    (async () => {
-      const url = await AskUrl();
-      const page = await fetch(url);
-      
-      const lastSlash = url.lastIndexOf("/");
+      setFiles([...files, beerJson]);
+  })();
 
-      const id = url.slice(lastSlash + 1);
-      const lbl = id;
-      const data = await page.json();
+  const recipe = files.find(e => e.id === active);
 
-      this.setState(oldState => {
-        return { files: [...oldState.files, {id, lbl, data}] };
-      })
-    })();
-  }
+  return (
+    <div className="App">
+      <Header />
+      <TabList 
+          tabs={files}
+          active={active}
+          onChange={handleFileChange}
+          onNewFile={handleNewFile} />
 
-  render() {
-    let recipe = this.state.files.find(e => e.id === this.state.active);
+      <FileViewer 
+          mode={mode}
+          name={active} 
+          content={recipe && recipe.data} />
 
-    return (
-      <div className="App">
-        <Header />
-        <TabList 
-            tabs={this.state.files}
-            active={this.state.active}
-            onChange={this.handleFileChange}
-            onNewFile={this.handleNewFile} />
-
-        <FileViewer 
-            mode={this.state.mode}
-            name={this.state.active} 
-            content={recipe && recipe.data} />
-
-        <Footer
-            status={this.state.status}
-            mode={this.state.mode}
-            modes={Object.values(ViewModes)}
-            onModeChange={this.handleModeChange} />
-      </div>
-    );
-  }
+      <Footer
+          status={status}
+          mode={mode}
+          modes={Object.values(ViewModes)}
+          onModeChange={handleModeChange} />
+    </div>
+  );
 }
-
-export default App;

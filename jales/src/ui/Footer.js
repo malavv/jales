@@ -19,7 +19,8 @@ const tmpContexts = [
 
 function Footer(props) {
 
-    const handleModeClick = (mode) => {
+    const handleModeClick = (e) => {
+        const mode = e.target.getAttribute("value");
         if (mode === props.mode)
             return;
         props.onModeChange(mode);
@@ -32,9 +33,10 @@ function Footer(props) {
                 <div className="viewmode-ctl">
                     {joinWithJsx(
                         props.modes.map(m => (
-                        <span key={m} 
+                        <span key={m}
+                            value={m}
                             active={String(props.mode === m)} 
-                            onClick={handleModeClick.bind(null, m)}>{m}</span>)),
+                            onClick={handleModeClick}>{m}</span>)),
                         (i) => (<span key={i}> | </span>))}
                 </div>
             </div>
