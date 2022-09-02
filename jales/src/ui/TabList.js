@@ -23,6 +23,10 @@ function TabList(props) {
                 active={el.id === props.active} 
                 lbl={el.lbl}
                 onClick={() => handleClick(el.id)} />))}
+            <li key={-1} className="tab-new"
+                onClick={props.onNewFile}>
+                +
+            </li>
         </ul>
     );
 }
