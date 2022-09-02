@@ -1,49 +1,62 @@
 import './App.css';
-import Header from './Header';
-import Footer from './Footer';
-import TabList from './TabList';
 
-import examples from './examples.js';
 import React from 'react';
 
-import FileViewer from './FileViewer';
+import Header from './ui/Header';
+import Footer, { FooterStatus } from './ui/Footer';
+import TabList from './ui/TabList';
+import FileViewer, { ViewModes } from './viewer/FileViewer';
+
+import examples from './sources/examples.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      examples: examples,
-      active: examples[0].name,
+      files: [],
+      active: null,
+      mode: ViewModes.json,
+      status: FooterStatus.green,
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleFileChange = this.handleFileChange.bind(this);
+    this.handleModeChange = this.handleModeChange.bind(this);
   }
 
-  getActive() {
-    return this.state.examples.find(e => e.name === this.state.active);
+  componentDidMount() {
+    const files = examples; // Fetch list of files
+
+    this.setState({
+      files: files,
+      active: files[0].id,
+    });
   }
 
-  handleChange(active) {
-    this.setState({active: active});
-  }
+  handleFileChange(active) { this.setState({active: active}); }
+  handleModeChange(mode) { this.setState({mode: mode}); }
 
   render() {
-
-    let recipe = this.getActive();
+    let recipe = this.state.files.find(e => e.id === this.state.active);
 
     return (
       <div className="App">
         <Header />
         <TabList 
-            tabs={this.state.examples.map(e => e.name)}
+            tabs={this.state.files}
             active={this.state.active}
-            onChange={this.handleChange} />
+            onChange={this.handleFileChange} />
 
         <FileViewer 
+            mode={this.state.mode}
             name={this.state.active} 
-            content={recipe.data} />
-        <Footer />
+            content={recipe && recipe.data} />
+
+        <Footer
+            status={this.state.status}
+            mode={this.state.mode}
+            modes={Object.values(ViewModes)}
+            onModeChange={this.handleModeChange} />
       </div>
     );
   }

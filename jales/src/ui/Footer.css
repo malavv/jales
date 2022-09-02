@@ -4,26 +4,31 @@ footer {
     justify-content: space-between
 }
 
-footer > div.Status {
+footer > div.control {
     display: flex;
     flex-direction: row;
 }
 
-footer div.light {
+footer div.status-light {
     width: 2em;
-    background-color: #329071;
 }
-footer div.viewtype {
+
+footer .light-ok { background-color: #329071; }
+footer .light-warn { background-color: orangered; }
+footer .light-error { background-color: maroon; }
+
+footer div.viewmode-ctl {
     padding-left: 1em;
     font-weight: bold;
 }
 
-footer div.viewtype span {
+footer div.viewmode-ctl span {
     color: #b5b5b5;
     cursor: pointer;
+    user-select: none;
 }
 
-footer div.viewtype span[active=true] {
+footer div.viewmode-ctl span[active=true] {
     color: #ededed;
 }
 
