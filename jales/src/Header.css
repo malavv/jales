@@ -1,0 +1,7 @@
+Header {
+    background-color: var(--color_d);
+}
+
+Header.tab {
+    background-color: var(--color_a);
+}

@@ -1,0 +1,27 @@
+.TabList {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #252526;
+    height: 3vh;
+}
+
+.TabList li {
+    background-color: #2d2d2d;
+    color: #626253;
+    width: 15em;
+    height: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 1px;
+    user-select: none;
+}
+
+.TabList li[active=true] {
+    background-color: #1e1e1e;
+    color: #8f8f8f;
+}

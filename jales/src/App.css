@@ -1,0 +1,32 @@
+:root {
+  --color_a: #382811;
+  --color_b: #D1B080;
+  --color_c: #B88437;
+  --color_d: #3D3933;
+  --color_e: #855F28;
+}
+
+.App {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: auto;
+  overflow-y: scroll;
+}
+
+Footer {
+  height: 1.7vh;
+  background-color: var(--color_e);
+}
+
+Header {
+  height: 2.7vh;
+  color: #a5a5a5;
+  font-size: 1.5em;
+}

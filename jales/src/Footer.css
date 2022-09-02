@@ -1,0 +1,37 @@
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}
+
+footer > div.Status {
+    display: flex;
+    flex-direction: row;
+}
+
+footer div.light {
+    width: 2em;
+    background-color: #329071;
+}
+footer div.viewtype {
+    padding-left: 1em;
+    font-weight: bold;
+}
+
+footer div.viewtype span {
+    color: #b5b5b5;
+    cursor: pointer;
+}
+
+footer div.viewtype span[active=true] {
+    color: #ededed;
+}
+
+
+footer > div.Context {
+    color: white;
+}
+
+footer > div.Context > span {
+    padding-right: 20px;
+}
