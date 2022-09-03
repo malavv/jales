@@ -6,6 +6,7 @@ import StyleBase from "../widgets/StyleBase";
 import FermentableBase from "../widgets/FermentableBase";
 import MiscellaneousAdditionType from '../widgets/MiscellaneousAdditionType';
 import Plabel from '../widgets/general/Plabel';
+import MashStep from '../widgets/MashStep';
 
 import React from 'react';
 
@@ -17,6 +18,7 @@ const name2widget = {
     "FermentableBase": FermentableBase,
     "MiscellaneousAdditionType": MiscellaneousAdditionType,
     "Plabel": Plabel,
+    "MashStep": MashStep,
 };
 
 // Examples to use
@@ -43,7 +45,19 @@ const examples = [
           duration: {value: 14, unit: "day"},
           use: "add_to_fermentation"
         }
-    }}
+    }},
+    { name: 'MashStep', props: {
+        "name": "Saccharification Rest",
+        "type": "infusion",
+        "amount": {"value": 22.5, "unit": "qt"},
+        "step_temperature": {"value": 158, "unit": "F"},
+        "step_time": {"value": 70, "unit": "min"},
+        "ramp_time": {"value": 5, "unit": "min"},
+        "end_temperature": {"value": 158, "unit": "F"},
+        "description": "Add 22.50 qt of water at 165.0 F",
+        "water_grain_ratio": {"value": 2.09, "unit": "qt/lb"},
+        "infuse_temperature": {"value": 165, "unit": "F"}
+      }},
 ];
 
 /** Lists all UI Widgets with examples */
