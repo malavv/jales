@@ -1,18 +1,16 @@
-div.qty {
+div.style-base {
     display: flex;
     flex-direction: row;
 }
 
-div.qty > * {
+div.style-base > * {
     padding: 3px 10px;
 }
 
-div.qty div.qty-val {
+div.style-deta {
     background-color: gray;
-    font-family: monospace;
-    font-size: 1.3em;
 }
 
-div.qty div.qty-unt {
+div.style-type {
     background-color: palevioletred;
 }

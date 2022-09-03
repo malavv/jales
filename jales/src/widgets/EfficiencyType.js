@@ -7,7 +7,7 @@ export default function EfficiencyType(props) {
     const cmpts = ['conversion', 'lauter', 'mash', 'brewhouse'].map(key => {
         return (props[key] && 
             <div key={key} className="eff-qty">
-                <Quantity {...props[key]}/>
+                <Quantity {...props[key]} fixedNum="1" />
                 <div>{key}</div>
             </div>);
     });

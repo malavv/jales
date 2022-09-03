@@ -2,6 +2,7 @@ import './Widgets.css';
 
 import Quantity from "../widgets/Quantity";
 import EfficiencyType from "../widgets/EfficiencyType";
+import StyleBase from "../widgets/StyleBase";
 
 import React from 'react';
 
@@ -9,12 +10,14 @@ import React from 'react';
 const name2widget = {
     'Quantity': Quantity,
     'EfficiencyType': EfficiencyType,
+    'StyleBase': StyleBase,
 };
 
 // Examples to use
 const examples = [
     { name: 'Quantity', props: { val: '5', unit: 'g' } },
     { name: 'EfficiencyType', props: { conversion: { val: '92', unit: '%' }, lauter: { val: '80.5', unit: '%' }, mash: { val: '74', unit: '%' }, brewhouse: { val: '74.1', unit: '%' } }},
+    { name: 'StyleBase', props: { name: "Specialty", category: "Experimental and Historic", category_number: 24, style_letter: "A", style_guide: "BJCP 1999", type: "beer" }},
 ];
 
 /** Lists all UI Widgets with examples */
