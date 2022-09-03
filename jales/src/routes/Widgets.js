@@ -35,12 +35,13 @@ const examples = [
         yield_type: { potential: {value: 1033, unit: "sg"} }
       }},
     { name: 'MiscellaneousAdditionType', props: {
-        name: "Bitter Orange Peel",
+        name: "Juniper Berries",
         type: "spice",
-        amount: {value: 0.63, unit: "oz"},
+        amount: {value: 1, unit: "oz"},
         timing: {
-          time: {value: 60, unit: "min"},
-          use: "add_to_boil"
+          time: {value: 15, unit: "day"},
+          duration: {value: 14, unit: "day"},
+          use: "add_to_fermentation"
         }
     }}
 ];

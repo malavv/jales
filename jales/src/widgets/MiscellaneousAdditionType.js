@@ -6,6 +6,8 @@ export default function MiscellaneousAdditionType({name, type, amount, timing}) 
         <div className='header'>{name}</div>
         <Plabel text={type} legend="type" />
         <Quantity {...amount} legend="amount" />
-        <Quantity {...timing.time} legend={timing.use} />
+        <Quantity {...timing.time} legend={`at`} />
+        {timing.duration && <Quantity {...timing.duration} legend={`for`} />}
+        <Plabel text={timing.use} legend="type" />
     </div>);
 }
