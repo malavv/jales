@@ -1,0 +1,14 @@
+div.qty {
+    display: flex;
+    flex-direction: row;
+}
+div.qty > * {
+    padding: 3px 10px;
+}
+
+div.qty div.qty-val {
+    background-color: gray;
+}
+div.qty div.qty-unt {
+    background-color: palevioletred;
+}

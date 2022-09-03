@@ -1,0 +1,26 @@
+div.efficiency {
+    display: flex;
+    flex-direction: row;
+}
+
+div.eff-qty {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1px;
+}
+
+div.efficiency > :first-child {
+    background-color: #bbb;
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+}
+
+div.eff-qty > :last-child {
+    background-color: #bbb;
+    color: #111;
+    font-size: 12px;
+    text-align: center;
+}
