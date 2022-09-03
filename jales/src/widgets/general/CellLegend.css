@@ -17,4 +17,10 @@
     color: #111;
     font-size: 12px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1em;
+    padding-top: 1px;
+    padding-bottom: 3px;
 }

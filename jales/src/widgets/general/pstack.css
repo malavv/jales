@@ -1,13 +1,13 @@
-div.efficiency {
+.pstack > * {
+    margin-left: 1px;
+}
+
+.pstack {
     display: flex;
     flex-direction: row;
 }
 
-div.efficiency > * {
-    padding-left: 1px;
-}
-
-div.efficiency-title {
+.pstack > div.header {
     background-color: #bbb;
     color: #111;
     display: flex;
