@@ -1,13 +1,14 @@
-div.efficiency {
+div.ferment-base {
     display: flex;
     flex-direction: row;
 }
-
-div.efficiency > * {
-    padding-left: 1px;
+span.ferment-lbl {
+    padding: 3px 10px;
 }
-
-div.efficiency-title {
+div.ferment-base > * {
+    margin-left: 1px;
+}
+div.ferment-title {
     background-color: #bbb;
     color: #111;
     display: flex;

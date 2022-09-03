@@ -1,18 +1,29 @@
-div.qty {
+.qty {
     display: flex;
     flex-direction: row;
+    height: 100%;
 }
 
-div.qty > * {
+.qty > * {
     padding: 3px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-div.qty div.qty-val {
+.qty-val {
     background-color: gray;
     font-family: monospace;
     font-size: 1.3em;
 }
 
-div.qty div.qty-unt {
+.qty-unt {
     background-color: palevioletred;
+}
+
+.qty-legend {
+    background-color: #bbb;
+    color: #111;
+    font-size: 12px;
+    text-align: center;
 }

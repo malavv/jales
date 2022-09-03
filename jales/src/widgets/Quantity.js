@@ -1,10 +1,18 @@
+import CellLegend from './CellLegend';
 import './Quantity.css';
 
-export default function Quantity({val, unit, fixedNum = null}) {
-    const fmtVal = fixedNum ? Number(val).toFixed(fixedNum) : val;
+export default function Quantity({value, unit, legend, fixedNum = null}) {
+    const fmtVal = fixedNum ? Number(value).toFixed(fixedNum) : value;
 
-    return (<div className="qty">
-        <div className="qty-val">{fmtVal}</div>
-        <div className="qty-unt">{unit}</div>
-    </div>)
+    const qty = (
+    <div className="qty">
+        <div className="qty-val">
+            <span>{fmtVal}</span>
+        </div>
+        <div className="qty-unt">
+            <span>{unit}</span>
+        </div>
+    </div>);
+
+    return (legend ? <CellLegend legend={legend}>{qty}</CellLegend> : qty);
 }
