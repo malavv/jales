@@ -37,6 +37,12 @@ footer > div.Context {
     color: white;
 }
 
-footer > div.Context > span {
+footer > div.Context > * {
     padding-right: 20px;
 }
+
+footer > div.Context > a {
+    font-weight: bold;
+    color: var(--color_a);
+}
+
