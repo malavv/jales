@@ -1,0 +1,29 @@
+ul.mash-proc-steps {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+div.mash-proc-step-idx {
+    background-color: violet;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    margin: 1px 0;
+}
+
+div.mash-proc-header > :first-child {
+    background-color: #bbb;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+div.mash-proc-header-name {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background-color: #bbb;
+    margin: 0 1px;
+}

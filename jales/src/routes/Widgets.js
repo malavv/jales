@@ -8,6 +8,7 @@ import MiscellaneousAdditionType from '../widgets/MiscellaneousAdditionType';
 import Plabel from '../widgets/general/Plabel';
 import MashStep from '../widgets/MashStep';
 import BoilProcedureType from '../widgets/BoilProcedureType';
+import MashProcedureType from '../widgets/MashProcedureType';
 
 import React from 'react';
 
@@ -21,6 +22,7 @@ const name2widget = {
     "Plabel": Plabel,
     "MashStep": MashStep,
     "BoilProcedureType": BoilProcedureType,
+    "MashProcedureType": MashProcedureType,
 };
 
 // Examples to use
@@ -70,6 +72,28 @@ const examples = [
             "boil_time": {"value": 90, "unit": "min"}
         },
     },
+    {
+        name: 'MashProcedureType',
+        props: {
+            "name": "Simple Mash Type - Single Step",
+            "grain_temperature": {"value": 80, "unit": "F"},
+            "notes": "",
+            "mash_steps": [
+              {
+                "name": "Saccharification Rest",
+                "type": "infusion",
+                "amount": {"value": 22.5, "unit": "qt"},
+                "step_temperature": {"value": 158, "unit": "F"},
+                "step_time": {"value": 70, "unit": "min"},
+                "ramp_time": {"value": 5, "unit": "min"},
+                "end_temperature": {"value": 158, "unit": "F"},
+                "description": "Add 22.50 qt of water at 165.0 F",
+                "water_grain_ratio": {"value": 2.09, "unit": "qt/lb"},
+                "infuse_temperature": {"value": 165, "unit": "F"}
+              }
+            ]
+          }
+    }
 ];
 
 /** Lists all UI Widgets with examples */
