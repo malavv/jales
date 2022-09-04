@@ -8,6 +8,6 @@ export default function MiscellaneousAdditionType({name, type, amount, timing}) 
         <Quantity {...amount} legend="amount" />
         <Quantity {...timing.time} legend={`at`} />
         {timing.duration && <Quantity {...timing.duration} legend={`for`} />}
-        <Plabel text={timing.use} legend="type" />
+        {timing.use && <Plabel text={timing.use} legend="timing type" />}
     </div>);
 }

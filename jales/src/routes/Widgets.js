@@ -9,6 +9,8 @@ import Plabel from '../widgets/general/Plabel';
 import MashStep from '../widgets/MashStep';
 import BoilProcedureType from '../widgets/BoilProcedureType';
 import MashProcedureType from '../widgets/MashProcedureType';
+import IngredientsType from '../widgets/IngredientsType';
+import CultureAdditionType from '../widgets/CultureAdditionType';
 
 import React from 'react';
 
@@ -23,6 +25,8 @@ const name2widget = {
     "MashStep": MashStep,
     "BoilProcedureType": BoilProcedureType,
     "MashProcedureType": MashProcedureType,
+    "IngredientsType": IngredientsType,
+    "CultureAdditionType": CultureAdditionType,
 };
 
 // Examples to use
@@ -39,7 +43,7 @@ const examples = [
         color: {value: 2.2, unit: "Lovi"},
         origin: "America",
         amount: {value: 0.5, unit: "lb"},
-        yield_type: { potential: {value: 1033, unit: "sg"} }
+        'yield': { potential: {value: 1033, unit: "sg"} }
       }},
     { name: 'MiscellaneousAdditionType', props: {
         name: "Juniper Berries",
@@ -50,6 +54,14 @@ const examples = [
           duration: {value: 14, unit: "day"},
           use: "add_to_fermentation"
         }
+    }},
+    { name: 'CultureAdditionType', props: {
+      "name": "English Ale",
+      "type": "ale",
+      "form": "liquid",
+      "producer": "Ithaca Beer C",
+      "product_id": "",
+      "amount": {"value": 0, "unit": "ml"}
     }},
     { name: 'MashStep', props: {
         "name": "Saccharification Rest",
@@ -93,7 +105,128 @@ const examples = [
               }
             ]
           }
-    }
+    },
+    {name: 'IngredientsType', props: {
+        "fermentable_additions": [
+          {
+            "name": "Buckwheat Honey",
+            "type": "honey",
+            "color": {"value": 0, "unit": "Lovi"},
+            "origin": "America",
+            "amount": {"value": 2.148, "unit": "lb"},
+            "yield": {
+              "potential": {"value": 1037, "unit": "sg"}
+            }
+          },
+          {
+            "name": "Flaked Barley",
+            "type": "grain",
+            "color": {"value": 2.2, "unit": "Lovi"},
+            "origin": "America",
+            "amount": {"value": 0.5, "unit": "lb"},
+            "yield": {
+              "potential": {"value": 1033, "unit": "sg"}
+            }
+          },
+          {
+            "name": "Roasted Barley",
+            "type": "grain",
+            "color": {"value": 450, "unit": "Lovi"},
+            "origin": "America",
+            "amount": {"value": 0.25, "unit": "lb"},
+            "yield": {
+              "potential": {"value": 1037, "unit": "sg"}
+            }
+          },
+          {
+            "name": "Unmalted Wheat",
+            "type": "grain",
+            "color": {"value": 2.7, "unit": "Lovi"},
+            "origin": "America",
+            "amount": {"value": 1.5, "unit": "lb"},
+            "yield": {
+              "potential": {"value": 1037, "unit": "sg"}
+            }
+          },
+          {
+            "name": "Pale Malt(2-row)",
+            "type": "grain",
+            "color": {"value": 1.8, "unit": "Lovi"},
+            "origin": "America",
+            "amount": {"value": 8, "unit": "lb"},
+            "yield": {
+              "potential": {"value": 1037, "unit": "sg"}
+            }
+          },
+          {
+            "name": "Crystal Malt",
+            "type": "grain",
+            "color": {"value": 60, "unit": "Lovi"},
+            "origin": "America",
+            "amount": {"value": 1, "unit": "lb"},
+            "yield": {
+              "potential": {"value": 1037, "unit": "sg"}
+            }
+          }
+        ],
+        "miscellaneous_additions": [
+          {
+            "name": "Bitter Orange Peel",
+            "type": "spice",
+            "amount": {"value": 0.63, "unit": "oz"},
+            "timing": {
+              "time": {"value": 60, "unit": "min"},
+              "use": "add_to_boil"
+            }
+          },
+          {
+            "name": "Licorice Stick",
+            "type": "spice",
+            "amount": {"value": 0.75, "unit": "oz"},
+            "timing": {
+              "time": {"value": 60, "unit": "min"},
+              "use": "add_to_boil"
+            }
+          },
+          {
+            "name": "Mugwort",
+            "type": "herb",
+            "amount": {"value": 1, "unit": "oz"},
+            "timing": {
+              "time": {"value": 60, "unit": "min"},
+              "use": "add_to_boil"
+            }
+          },
+          {
+            "name": "Juniper Berries",
+            "type": "spice",
+            "amount": {"value": 1, "unit": "oz"},
+            "timing": {
+              "time": {"value": 15, "unit": "day"},
+              "duration": {"value": 14, "unit": "day"},
+              "use": "add_to_fermentation"
+            }
+          },
+          {
+            "name": "Lemon Balm",
+            "type": "herb",
+            "amount": {"value": 3, "unit": "oz"},
+            "timing": {
+              "time": {"value": 0, "unit": "min"}
+            }
+          }
+        ],
+        "culture_additions": [
+          {
+            "name": "English Ale",
+            "type": "ale",
+            "form": "liquid",
+            "producer": "Ithaca Beer C",
+            "product_id": "",
+            "amount": {"value": 0, "unit": "ml"}
+          }
+        ]
+      }}
 ];
 
 /** Lists all UI Widgets with examples */
