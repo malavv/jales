@@ -43,7 +43,7 @@ function Footer(props) {
 
             <div className="Context">
                 {tmpContexts.map((el, i) => (<span key={i}>{el.lbl}</span>))}
-                <a href='https://github.com/beerjson/beerjson'>BeerJSON Github</a>
+                <a href='https://github.com/beerjson/beerjson' target="_blank" rel="noreferrer">BeerJSON Github</a>
             </div>
         </footer>
     );

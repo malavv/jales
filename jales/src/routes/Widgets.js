@@ -7,6 +7,7 @@ import FermentableBase from "../widgets/FermentableBase";
 import MiscellaneousAdditionType from '../widgets/MiscellaneousAdditionType';
 import Plabel from '../widgets/general/Plabel';
 import MashStep from '../widgets/MashStep';
+import BoilProcedureType from '../widgets/BoilProcedureType';
 
 import React from 'react';
 
@@ -19,6 +20,7 @@ const name2widget = {
     "MiscellaneousAdditionType": MiscellaneousAdditionType,
     "Plabel": Plabel,
     "MashStep": MashStep,
+    "BoilProcedureType": BoilProcedureType,
 };
 
 // Examples to use
@@ -59,6 +61,15 @@ const examples = [
         "water_grain_ratio": {"value": 2.09, "unit": "qt/lb"},
         "infuse_temperature": {"value": 165, "unit": "F"}
       }},
+    {
+        name: 'BoilProcedureType',
+        props: {
+            "name": "60 minute boil",
+            "description": "A standard 60 min boil",
+            "pre_boil_size": {"value": 5.5, "unit": "gal"},
+            "boil_time": {"value": 90, "unit": "min"}
+        },
+    },
 ];
 
 /** Lists all UI Widgets with examples */
