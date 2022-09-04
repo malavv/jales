@@ -1,0 +1,12 @@
+div.ingredients > section {}
+div.ingredients > section > header {
+    background-color: var(--color_e);
+    font-size: 1em;
+    height: auto;
+    color: #222;
+    padding-left: 1em;
+    font-weight: bold;
+}
+div.ingredients > section > div {
+    margin-left: 2em;
+}

@@ -11,6 +11,7 @@ import BoilProcedureType from '../widgets/BoilProcedureType';
 import MashProcedureType from '../widgets/MashProcedureType';
 import IngredientsType from '../widgets/IngredientsType';
 import CultureAdditionType from '../widgets/CultureAdditionType';
+import RecipeType from '../widgets/RecipeType';
 
 import React from 'react';
 
@@ -27,6 +28,7 @@ const name2widget = {
     "MashProcedureType": MashProcedureType,
     "IngredientsType": IngredientsType,
     "CultureAdditionType": CultureAdditionType,
+    "RecipeType": RecipeType,
 };
 
 // Examples to use
@@ -226,7 +228,185 @@ const examples = [
             "amount": {"value": 0, "unit": "ml"}
           }
         ]
-      }}
+      }},
+    {name: 'RecipeType', props: {
+      "beerjson": {
+        "version": 2.06,
+        "recipes": [
+          {
+            "name": "#20 1058 Medieval Ale",
+            "type": "all grain",
+            "author": "",
+            "batch_size": {"value": 5.5, "unit": "gal"},
+            "efficiency": {
+              "conversion": {"value": 92, "unit": "%"},
+              "lauter": {"value": 80.5, "unit": "%"},
+              "mash": {"value": 74, "unit": "%"},
+              "brewhouse": {"value": 74.1, "unit": "%"}
+            },
+            "style": {
+              "name": "Specialty",
+              "category": "Experimental and Historic",
+              "category_number": 24,
+              "style_letter": "A",
+              "style_guide": "BJCP 1999",
+              "type": "beer"
+            },
+            "ingredients": {
+              "fermentable_additions": [
+                {
+                  "name": "Buckwheat Honey",
+                  "type": "honey",
+                  "color": {"value": 0, "unit": "Lovi"},
+                  "origin": "America",
+                  "amount": {"value": 2.148, "unit": "lb"},
+                  "yield": {
+                    "potential": {"value": 1037, "unit": "sg"}
+                  }
+                },
+                {
+                  "name": "Flaked Barley",
+                  "type": "grain",
+                  "color": {"value": 2.2, "unit": "Lovi"},
+                  "origin": "America",
+                  "amount": {"value": 0.5, "unit": "lb"},
+                  "yield": {
+                    "potential": {"value": 1033, "unit": "sg"}
+                  }
+                },
+                {
+                  "name": "Roasted Barley",
+                  "type": "grain",
+                  "color": {"value": 450, "unit": "Lovi"},
+                  "origin": "America",
+                  "amount": {"value": 0.25, "unit": "lb"},
+                  "yield": {
+                    "potential": {"value": 1037, "unit": "sg"}
+                  }
+                },
+                {
+                  "name": "Unmalted Wheat",
+                  "type": "grain",
+                  "color": {"value": 2.7, "unit": "Lovi"},
+                  "origin": "America",
+                  "amount": {"value": 1.5, "unit": "lb"},
+                  "yield": {
+                    "potential": {"value": 1037, "unit": "sg"}
+                  }
+                },
+                {
+                  "name": "Pale Malt(2-row)",
+                  "type": "grain",
+                  "color": {"value": 1.8, "unit": "Lovi"},
+                  "origin": "America",
+                  "amount": {"value": 8, "unit": "lb"},
+                  "yield": {
+                    "potential": {"value": 1037, "unit": "sg"}
+                  }
+                },
+                {
+                  "name": "Crystal Malt",
+                  "type": "grain",
+                  "color": {"value": 60, "unit": "Lovi"},
+                  "origin": "America",
+                  "amount": {"value": 1, "unit": "lb"},
+                  "yield": {
+                    "potential": {"value": 1037, "unit": "sg"}
+                  }
+                }
+              ],
+              "miscellaneous_additions": [
+                {
+                  "name": "Bitter Orange Peel",
+                  "type": "spice",
+                  "amount": {"value": 0.63, "unit": "oz"},
+                  "timing": {
+                    "time": {"value": 60, "unit": "min"},
+                    "use": "add_to_boil"
+                  }
+                },
+                {
+                  "name": "Licorice Stick",
+                  "type": "spice",
+                  "amount": {"value": 0.75, "unit": "oz"},
+                  "timing": {
+                    "time": {"value": 60, "unit": "min"},
+                    "use": "add_to_boil"
+                  }
+                },
+                {
+                  "name": "Mugwort",
+                  "type": "herb",
+                  "amount": {"value": 1, "unit": "oz"},
+                  "timing": {
+                    "time": {"value": 60, "unit": "min"},
+                    "use": "add_to_boil"
+                  }
+                },
+                {
+                  "name": "Juniper Berries",
+                  "type": "spice",
+                  "amount": {"value": 1, "unit": "oz"},
+                  "timing": {
+                    "time": {"value": 15, "unit": "day"},
+                    "duration": {"value": 14, "unit": "day"},
+                    "use": "add_to_fermentation"
+                  }
+                },
+                {
+                  "name": "Lemon Balm",
+                  "type": "herb",
+                  "amount": {"value": 3, "unit": "oz"},
+                  "timing": {
+                    "time": {"value": 0, "unit": "min"}
+                  }
+                }
+              ],
+              "culture_additions": [
+                {
+                  "name": "English Ale",
+                  "type": "ale",
+                  "form": "liquid",
+                  "producer": "Ithaca Beer C",
+                  "product_id": "",
+                  "amount": {"value": 0, "unit": "ml"}
+                }
+              ]
+            },
+            "mash": {
+              "name": "Simple Mash Type - Single Step",
+              "grain_temperature": {"value": 80, "unit": "F"},
+              "notes": "",
+              "mash_steps": [
+                {
+                  "name": "Saccharification Rest",
+                  "type": "infusion",
+                  "amount": {"value": 22.5, "unit": "qt"},
+                  "step_temperature": {"value": 158, "unit": "F"},
+                  "step_time": {"value": 70, "unit": "min"},
+                  "ramp_time": {"value": 5, "unit": "min"},
+                  "end_temperature": {"value": 158, "unit": "F"},
+                  "description": "Add 22.50 qt of water at 165.0 F",
+                  "water_grain_ratio": {"value": 2.09, "unit": "qt/lb"},
+                  "infuse_temperature": {"value": 165, "unit": "F"}
+                }
+              ]
+            },
+            "boil": {
+              "name": "60 minute boil",
+              "description": "A standard 60 min boil",
+              "pre_boil_size": {"value": 5.5, "unit": "gal"},
+              "boil_time": {"value": 90, "unit": "min"}
+            },
+            "notes": "",
+            "original_gravity": {"value": 1.059, "unit": "sg"},
+            "ibu_estimate": {
+              "method": "Other"
+            }
+          }
+        ]
+      }
+    }},
 ];
 
 /** Lists all UI Widgets with examples */
