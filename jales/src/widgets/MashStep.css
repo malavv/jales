@@ -1,0 +1,31 @@
+div.mash-prop > table {
+    padding: 0;
+    margin: 0;
+    border-spacing: 1px;
+}
+
+div.mash-prop > table > tbody > tr > td {
+    padding: 0;
+    margin: 0;
+}
+
+div.mash-head {
+    background-color: #bbb;
+    margin: 1px 0;/* To match the table border to its right */
+    width: 160px;
+}
+
+div.mash-head > :first-child {
+    text-align: center;
+    background-color: var(--color_c);
+}
+
+div.mash-desc {
+    flex: 1;
+    padding: 0 4px;
+}
+
+div.mash-head > :last-child {
+    text-align: center;
+    background-color: var(--color_b);
+}

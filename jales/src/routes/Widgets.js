@@ -25,6 +25,7 @@ const name2widget = {
 const examples = [
     { name: 'Quantity', props: { value: '5', unit: 'g'} },
     { name: 'Quantity', desc: 'with legend', props: { value: '5', unit: 'g', legend: 'legend'} },
+    { name: 'Quantity', desc: 'with long legend', props: { value: '5', unit: 'g', legend: 'looong legend'} },
     { name: 'Plabel', desc: 'with legend', props: { text: 'test', legend: 'legend'} },
     { name: 'EfficiencyType', props: { conversion: { value: '92', unit: '%' }, lauter: { value: '80.5', unit: '%' }, mash: { value: '74', unit: '%' }, brewhouse: { value: '74.1', unit: '%' } }},
     { name: 'StyleBase', props: { name: "Specialty", category: "Experimental and Historic", category_number: 24, style_letter: "A", style_guide: "BJCP 1999", type: "beer" }},
