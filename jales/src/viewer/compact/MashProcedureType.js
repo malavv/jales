@@ -7,7 +7,7 @@ import MashStep from './MashStep';
 export default function MashProcedureType({name, grain_temperature, notes, mash_steps}) {
     
     const steps = (mash_steps ?? []).map((step, i) => 
-        (<li className='row' key={step.name}>
+        (<li className='row' key={`${i}-${step.name}`}>
             <div className='mash-proc-step-idx'>{i}</div>
             <MashStep {...step} />
         </li>));

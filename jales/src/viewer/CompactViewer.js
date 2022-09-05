@@ -8,7 +8,6 @@ function CompactViewer({content}) {
         <RecipeType {...content?.beerjson?.recipes[0]} />
         <div className="row">
             <div className="auto"></div>
-            <div className="beerjson-version">{`BeerJSON file version: ${content?.beerjson?.version}`}</div>
         </div>
     </div>);
 };

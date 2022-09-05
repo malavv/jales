@@ -14,6 +14,7 @@ import BeerJSON from './sources/BeerJson';
 export default function App() {
   const [files, setFiles] = useState([]);
   const [active, setActive] = useState(null);
+  const [beerJsonVer, setBeerJsonVer] = useState('Unknown');
   const [mode, setMode] = useState(ViewModes.compact);
   const [status, setStatus] =  useState(FooterStatus.green);
 
@@ -22,6 +23,7 @@ export default function App() {
 
     setFiles(files);
     setActive(files[0].id);
+    setBeerJsonVer(files[0].data.beerjson.version);
     setStatus(FooterStatus.green);
   }, []);
 
@@ -54,6 +56,7 @@ export default function App() {
       <Footer
           status={status}
           mode={mode}
+          beerJsonVer={beerJsonVer}
           modes={Object.values(ViewModes)}
           onModeChange={handleModeChange} />
     </div>

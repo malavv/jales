@@ -12,37 +12,32 @@ export const FooterStatus = {
     red: 'error',
 }
 
-const tmpContexts = [
-    {lbl: 'No Context Yet'},
-    {lbl: 'No Context Yet'},
-];
-
-function Footer(props) {
+function Footer({modes, mode, status, beerJsonVer, onModeChange}) {
 
     const handleModeClick = (e) => {
-        const mode = e.target.getAttribute("value");
-        if (mode === props.mode)
+        const cmode = e.target.getAttribute("value");
+        if (mode === cmode)
             return;
-        props.onModeChange(mode);
+        onModeChange(cmode);
     }
 
     return (
         <footer>
             <div className="control">
-                <div className={`status-light light-${props.status}`} />
+                <div className={`status-light light-${status}`} />
                 <div className="viewmode-ctl">
                     {joinWithJsx(
-                        props.modes.map(m => (
+                        modes.map(m => (
                         <span key={m}
                             value={m}
-                            active={String(props.mode === m)} 
+                            active={String(mode === m)} 
                             onClick={handleModeClick}>{m}</span>)),
                         (i) => (<span key={i}> | </span>))}
                 </div>
             </div>
 
             <div className="Context">
-                {tmpContexts.map((el, i) => (<span key={i}>{el.lbl}</span>))}
+                <span>{`BeerJSON ver: ${beerJsonVer}`}</span>
                 <a href='https://github.com/beerjson/beerjson' target="_blank" rel="noreferrer">BeerJSON Github</a>
             </div>
         </footer>

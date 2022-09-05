@@ -7,6 +7,12 @@ ul.mash-proc-steps {
     margin: 0;
     list-style-type: none;
 }
+ul.mash-proc-steps > li {
+    margin-bottom: 1px;
+}
+ul.mash-proc-steps > :last-child {
+    margin-bottom: 0px;
+}
 
 div.mash-proc-step-idx {
     background-color: violet;

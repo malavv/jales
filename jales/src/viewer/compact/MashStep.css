@@ -1,7 +1,7 @@
 div.mash-prop > table {
     padding: 0;
     margin: 0;
-    border-spacing: 1px;
+    border-spacing: 0px;
 }
 
 div.mash-prop > table > tbody > tr > td {
@@ -11,7 +11,7 @@ div.mash-prop > table > tbody > tr > td {
 
 div.mash-head {
     background-color: #bbb;
-    margin: 1px 0;/* To match the table border to its right */
+    margin: 0px 0;/* To match the table border to its right */
     width: 160px;
 }
 
@@ -28,4 +28,9 @@ div.mash-desc {
 div.mash-head > :last-child {
     text-align: center;
     background-color: var(--color_b);
+    font-size: 80%;
+}
+
+div.mash-proc-step-idx {
+    margin: 0;
 }
