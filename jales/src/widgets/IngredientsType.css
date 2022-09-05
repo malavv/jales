@@ -10,3 +10,10 @@ div.ingredients > section > header {
 div.ingredients > section > div {
     margin-left: 2em;
 }
+
+div.ingredients > section > div > * {
+    margin-bottom: 1px;
+}
+div.ingredients > section > div > :last-child {
+    margin-bottom: 0px;
+}

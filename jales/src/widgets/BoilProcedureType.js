@@ -11,7 +11,7 @@ export default function BoilProcedureType({name, description, notes, pre_boil_si
         
         {pre_boil_size && <Quantity {...pre_boil_size} legend="pre_boil_size" />}
 
-        {description && <Plabel text={description} legend="description" />}
+        {description && <Plabel text={description} legend="description" className="auto" />}
         {notes && <Plabel text={notes} legend="notes" />}
     </div>);
 }

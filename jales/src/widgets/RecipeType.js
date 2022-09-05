@@ -53,9 +53,15 @@ export default function RecipeType(props) {
                         {alcohol_by_volume && <Quantity {...alcohol_by_volume} legend="alcohol_by_volume" />}
                         {ibu_estimate && <Plabel text={ibu_estimate?.method} legend="ibu_estimate" />}
                         {color_estimate && <Quantity {...color_estimate} legend="color_estimate" />}
+                        {beer_pH && <Quantity {...beer_pH} legend="beer_pH" />}
+                        {apparent_attenuation && <Quantity {...apparent_attenuation} legend="apparent_attenuation" />}
                     </div>
-                    
                     {style && <StyleBase {...style} />}
+                    {notes && <div>{notes}</div>}
+                    {carbonation && <div>{carbonation}</div>}
+                    {coauthor && <div>{coauthor}</div>}
+                    {created && <div>{created}</div>}
+                    {calories_per_pint && <div>{calories_per_pint}</div>}
                 </div>
             </section>
 
@@ -94,17 +100,6 @@ export default function RecipeType(props) {
                     <EfficientyType {...efficiency} />
                 </div>
             </section>
-            
-            
-            
-            {notes && <div>{notes}</div>}
-            
-            {beer_pH && <Quantity {...beer_pH} legend="beer_pH" />}
-            {carbonation && <div>{carbonation}</div>}
-            {apparent_attenuation && <Quantity {...apparent_attenuation} legend="apparent_attenuation" />}
-            {coauthor && <div>{coauthor}</div>}
-            {created && <div>{created}</div>}
-            {calories_per_pint && <div>{calories_per_pint}</div>}
         </div>
     );
 }

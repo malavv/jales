@@ -1,10 +1,14 @@
 .pstack > * {
-    margin-left: 1px;
+    margin-right: 1px;
+}
+.pstack > :last-child {
+    margin-right: 0px;
 }
 
 .pstack {
     display: flex;
     flex-direction: row;
+    margin-bottom: 1px;
 }
 
 .pstack > div.header {
@@ -14,4 +18,5 @@
     align-items: center;
     justify-content: center;
     padding: 0 10px;
+    flex:auto;
 }
