@@ -20,7 +20,7 @@
 }
 
 .qty-unt {
-    background-color: palevioletred;
+    background-color: var(--color_a1);
 }
 
 .qty-legend {

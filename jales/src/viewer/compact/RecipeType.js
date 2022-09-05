@@ -46,7 +46,7 @@ export default function RecipeType(props) {
                         <Plabel text={name} legend={author || "no author"} className="auto"/>
                         <div className='recipe-type'>{type}</div>
                     </div>
-                    <div className='row'>
+                    <div className='recipe-summ row'>
                         <Quantity {...batch_size} legend="batch_size" />
                         {original_gravity && <Quantity {...original_gravity} legend="original_gravity" />}
                         {final_gravity && <Quantity {...final_gravity} legend="final_gravity" />}

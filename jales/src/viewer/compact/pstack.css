@@ -8,7 +8,6 @@
 .pstack {
     display: flex;
     flex-direction: row;
-    margin-bottom: 1px;
 }
 
 .pstack > div.header {

@@ -1,5 +1,20 @@
+:root {
+    --color_a1: #DB7094;
+    --color_a2: #C26986;
+    --color_a3: #DBD486;
+    --color_a4: #5AC0DB;
+    --color_a5: #427F8F;
+}
+
+div.recipe > * {
+    margin-bottom: 1px;
+}
+div.recipe > :last-child {
+    margin-bottom: 0;
+}
+
 div.recipe-type {
-    background-color: fuchsia;
+    background-color: var(--color_a1);
     display: flex;
     align-items: center;
     padding: 0 5px;
@@ -8,8 +23,8 @@ div.recipe-type {
 section.row > div.recipe-section-head {
     writing-mode: vertical-rl;
     text-align: center;
-    margin: 0 1px 1px 0;
-    background-color: aqua;
+    margin: 0 1px 0 0;
+    background-color: var(--color_a5);
     flex: initial;
     padding-left: 5px;
     font-weight: bold;
@@ -17,4 +32,17 @@ section.row > div.recipe-section-head {
 
 section.row > div.recipe-section-main {
     flex: auto;
+}
+
+div.recipe-section-main > * {
+    margin-bottom: 1px;
+}
+div.recipe-section-main > :last-child {
+    margin-bottom: 0;
+}
+div.recipe-summ > * {
+    margin-right: 1px;
+}
+div.recipe-summ > :last-child {
+    margin-right: 0px;
 }
