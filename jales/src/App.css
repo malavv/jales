@@ -39,3 +39,7 @@ Header {
   display: flex;
   flex-direction: column;
 }
+
+.auto {
+  flex: auto;
+}

@@ -6,6 +6,7 @@ import StyleBase from './StyleBase';
 import IngredientsType from './IngredientsType';
 import MashProcedureType from './MashProcedureType';
 import BoilProcedureType from './BoilProcedureType';
+import Plabel from './general/Plabel';
 
 export default function RecipeType(props) {
     const {
@@ -36,26 +37,73 @@ export default function RecipeType(props) {
 
     return (
         <div className='recipe col'>
-            <div>{name}</div>
-            <div>{type}</div>
-            <div>{author}</div>
-            {coauthor && <div>{coauthor}</div>}
-            {created && <div>{created}</div>}
-            <Quantity {...batch_size} legend="batch_size" />
-            <EfficientyType {...efficiency} />
-            {style && <StyleBase {...style} />}
-            <IngredientsType {...ingredients} />
-            <MashProcedureType {...mash} />
+            <section className='row'>
+                <div className='recipe-section-head'>
+                    Summary
+                </div>
+                <div className='recipe-section-main'>
+                    <div className='row'>
+                        <Plabel text={name} legend={author || "no author"} className="auto"/>
+                        <div className='recipe-type'>{type}</div>
+                    </div>
+                    <div className='row'>
+                        <Quantity {...batch_size} legend="batch_size" />
+                        {original_gravity && <Quantity {...original_gravity} legend="original_gravity" />}
+                        {final_gravity && <Quantity {...final_gravity} legend="final_gravity" />}
+                        {alcohol_by_volume && <Quantity {...alcohol_by_volume} legend="alcohol_by_volume" />}
+                        {ibu_estimate && <Plabel text={ibu_estimate?.method} legend="ibu_estimate" />}
+                        {color_estimate && <Quantity {...color_estimate} legend="color_estimate" />}
+                    </div>
+                    
+                    {style && <StyleBase {...style} />}
+                </div>
+            </section>
+
+            <section className='row'>
+                <div className='recipe-section-head'>
+                    Ingredients
+                </div>
+                <div className='recipe-section-main'>
+                    <IngredientsType {...ingredients} />
+                </div>
+            </section>
+
+            <section className='row'>
+                <div className='recipe-section-head'>
+                    Mash
+                </div>
+                <div className='recipe-section-main'>
+                    <MashProcedureType {...mash} />
+                </div>
+            </section>
+            {boil &&
+                <section className='row'>
+                    <div className='recipe-section-head'>
+                        Boil
+                    </div>
+                    <div className='recipe-section-main'>
+                        <BoilProcedureType {...boil} legend="boil" />
+                    </div>
+                </section>
+            }
+            <section className='row'>
+                <div className='recipe-section-head'>
+                    Eff.
+                </div>
+                <div className='recipe-section-main'>
+                    <EfficientyType {...efficiency} />
+                </div>
+            </section>
+            
+            
+            
             {notes && <div>{notes}</div>}
-            {original_gravity && <Quantity {...original_gravity} legend="original_gravity" />}
-            {final_gravity && <Quantity {...final_gravity} legend="final_gravity" />}
-            {alcohol_by_volume && <Quantity {...alcohol_by_volume} legend="alcohol_by_volume" />}
-            {ibu_estimate && <Quantity {...ibu_estimate} legend="ibu_estimate" />}
-            {color_estimate && <Quantity {...color_estimate} legend="color_estimate" />}
+            
             {beer_pH && <Quantity {...beer_pH} legend="beer_pH" />}
             {carbonation && <div>{carbonation}</div>}
             {apparent_attenuation && <Quantity {...apparent_attenuation} legend="apparent_attenuation" />}
-            {boil && <BoilProcedureType {...boil} legend="boil" />}
+            {coauthor && <div>{coauthor}</div>}
+            {created && <div>{created}</div>}
             {calories_per_pint && <div>{calories_per_pint}</div>}
         </div>
     );

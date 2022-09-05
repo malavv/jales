@@ -9,6 +9,7 @@ div.style-base > * {
 
 div.style-deta {
     background-color: gray;
+    flex: auto;
 }
 
 div.style-type {

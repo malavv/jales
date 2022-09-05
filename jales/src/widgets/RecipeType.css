@@ -1,0 +1,30 @@
+div.recipe > :first-child > * {
+    margin-right: 1px;
+}
+div.recipe > :first-child > :last-child {
+    margin-right: 0px;
+}
+
+div.recipe > :first-child > :first-child {
+    /*flex: auto;*/
+}
+div.recipe-type {
+    background-color: fuchsia;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;;
+}
+
+section.row > div.recipe-section-head {
+    writing-mode: vertical-rl;
+    text-align: center;
+    margin: 1px;
+    background-color: aqua;
+    flex: initial;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+section.row > div.recipe-section-main {
+    flex: auto;
+}

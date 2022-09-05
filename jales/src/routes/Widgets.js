@@ -229,10 +229,7 @@ const examples = [
           }
         ]
       }},
-    {name: 'RecipeType', props: {
-      "beerjson": {
-        "version": 2.06,
-        "recipes": [
+    {name: 'RecipeType', props: 
           {
             "name": "#20 1058 Medieval Ale",
             "type": "all grain",
@@ -404,9 +401,7 @@ const examples = [
               "method": "Other"
             }
           }
-        ]
-      }
-    }},
+        },
 ];
 
 /** Lists all UI Widgets with examples */
