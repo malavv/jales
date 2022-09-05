@@ -1,17 +1,17 @@
 import './Widgets.css';
 
-import Quantity from "../widgets/Quantity";
-import EfficiencyType from "../widgets/EfficiencyType";
-import StyleBase from "../widgets/StyleBase";
-import FermentableBase from "../widgets/FermentableBase";
-import MiscellaneousAdditionType from '../widgets/MiscellaneousAdditionType';
-import Plabel from '../widgets/general/Plabel';
-import MashStep from '../widgets/MashStep';
-import BoilProcedureType from '../widgets/BoilProcedureType';
-import MashProcedureType from '../widgets/MashProcedureType';
-import IngredientsType from '../widgets/IngredientsType';
-import CultureAdditionType from '../widgets/CultureAdditionType';
-import RecipeType from '../widgets/RecipeType';
+import Quantity from "../viewer/compact/Quantity";
+import EfficiencyType from "../viewer/compact/EfficiencyType";
+import StyleBase from "../viewer/compact/StyleBase";
+import FermentableBase from "../viewer/compact/FermentableBase";
+import MiscellaneousAdditionType from '../viewer/compact/MiscellaneousAdditionType';
+import Plabel from '../viewer/compact/Plabel';
+import MashStep from '../viewer/compact/MashStep';
+import BoilProcedureType from '../viewer/compact/BoilProcedureType';
+import MashProcedureType from '../viewer/compact/MashProcedureType';
+import IngredientsType from '../viewer/compact/IngredientsType';
+import CultureAdditionType from '../viewer/compact/CultureAdditionType';
+import RecipeType from '../viewer/compact/RecipeType';
 
 import React from 'react';
 

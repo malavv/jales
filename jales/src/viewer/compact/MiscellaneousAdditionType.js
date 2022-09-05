@@ -1,5 +1,5 @@
 import Quantity from './Quantity';
-import Plabel from './general/Plabel';
+import Plabel from './Plabel';
 
 export default function MiscellaneousAdditionType({name, type, amount, timing}) {
     return (<div className="pstack">

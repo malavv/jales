@@ -6,7 +6,7 @@ import StyleBase from './StyleBase';
 import IngredientsType from './IngredientsType';
 import MashProcedureType from './MashProcedureType';
 import BoilProcedureType from './BoilProcedureType';
-import Plabel from './general/Plabel';
+import Plabel from './Plabel';
 
 export default function RecipeType(props) {
     const {

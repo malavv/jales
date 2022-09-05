@@ -1,4 +1,4 @@
-import './general/pstack.css';
+import './pstack.css';
 import './MashStep.css';
 
 import Quantity from './Quantity';

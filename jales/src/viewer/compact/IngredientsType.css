@@ -1,4 +1,3 @@
-div.ingredients > section {}
 div.ingredients > section > header {
     background-color: var(--color_e);
     font-size: 1em;

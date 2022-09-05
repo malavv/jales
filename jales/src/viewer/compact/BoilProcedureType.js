@@ -1,7 +1,7 @@
-import './general/pstack.css';
+import './pstack.css';
 
 import Quantity from "./Quantity";
-import Plabel from './general/Plabel';
+import Plabel from './Plabel';
 
 export default function BoilProcedureType({name, description, notes, pre_boil_size, boil_time}) {
     return (<div className="pstack">

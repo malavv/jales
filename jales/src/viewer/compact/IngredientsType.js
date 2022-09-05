@@ -10,19 +10,21 @@ export default function IngredientsType({fermentable_additions, hop_additions, m
         <section>
             <header>fermentable_additions</header>
             <div>
-                {fermentable_additions.map(el => <FermentableBase key={el.name} {...el} />)}
+                {(fermentable_additions ?? []).map(el => <FermentableBase key={el.name} {...el} />)}
             </div>
         </section>
+        {miscellaneous_additions &&
         <section>
             <header>miscellaneous_additions</header>
             <div>
-                {miscellaneous_additions.map(el => <MiscellaneousAdditionType key={el.name} {...el} />)}
+                {(miscellaneous_additions ?? []).map(el => <MiscellaneousAdditionType key={el.name} {...el} />)}
             </div>
         </section>
+        }
         <section>
             <header>culture_additions</header>
             <div>
-                {culture_additions.map(el => <CultureAdditionType key={el.name} {...el} />)}
+                {(culture_additions ?? []).map(el => <CultureAdditionType key={el.name} {...el} />)}
             </div>
         </section>
     </div>);

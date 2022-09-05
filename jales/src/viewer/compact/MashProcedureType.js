@@ -1,4 +1,4 @@
-import './general/pstack.css';
+import './pstack.css';
 import './MashProcedureType.css';
 
 import Quantity from "./Quantity";
@@ -6,7 +6,7 @@ import MashStep from './MashStep';
 
 export default function MashProcedureType({name, grain_temperature, notes, mash_steps}) {
     
-    const steps = mash_steps.map((step, i) => 
+    const steps = (mash_steps ?? []).map((step, i) => 
         (<li className='row' key={step.name}>
             <div className='mash-proc-step-idx'>{i}</div>
             <MashStep {...step} />

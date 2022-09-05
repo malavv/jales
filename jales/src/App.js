@@ -14,7 +14,7 @@ import BeerJSON from './sources/BeerJson';
 export default function App() {
   const [files, setFiles] = useState([]);
   const [active, setActive] = useState(null);
-  const [mode, setMode] = useState(ViewModes.json);
+  const [mode, setMode] = useState(ViewModes.compact);
   const [status, setStatus] =  useState(FooterStatus.green);
 
   useEffect(() => {

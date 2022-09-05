@@ -1,6 +1,6 @@
 import './Quantity.css';
 
-import CellLegend from './general/CellLegend';
+import CellLegend from './CellLegend';
 
 export default function Quantity({value, unit, legend, fixedNum = null}) {
     const fmtVal = fixedNum ? Number(value).toFixed(fixedNum) : value;

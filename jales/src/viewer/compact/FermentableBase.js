@@ -1,6 +1,6 @@
-import './general/pstack.css';
+import './pstack.css';
 
-import Plabel from './general/Plabel';
+import Plabel from './Plabel';
 import Quantity from './Quantity';
 
 export default function FermentableBase(obj) {
