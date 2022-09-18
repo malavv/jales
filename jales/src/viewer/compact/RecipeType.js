@@ -43,7 +43,7 @@ export default function RecipeType(props) {
                 </div>
                 <div className='recipe-section-main'>
                     <div className='row'>
-                        <Plabel text={name} legend={author} className="auto"/>
+                        <Plabel text={name} legend={author} className="auto recipe-title"/>
                         <div className='recipe-type'>{type}</div>
                     </div>
                     {style && <StyleBase {...style} />}

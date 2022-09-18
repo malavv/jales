@@ -46,3 +46,7 @@ div.recipe-summ > * {
 div.recipe-summ > :last-child {
     margin-right: 0px;
 }
+
+.recipe-title {
+    font-weight: bold;
+}

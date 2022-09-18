@@ -2,6 +2,7 @@ ul.mash-proc-steps {
     padding: 0;
     margin: 0;
     list-style-type: none;
+    margin-top: 1px;
 }
 ul.mash-proc-steps > li {
     margin-bottom: 1px;
@@ -15,7 +16,6 @@ div.mash-proc-step-idx {
     display: flex;
     align-items: center;
     padding: 5px 10px;
-    margin: 1px 0;
 }
 
 div.mash-proc-header > :first-child {
