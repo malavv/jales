@@ -9,5 +9,6 @@ export default function CultureAdditionType({name, type, form, producer, produce
         <Plabel text={type} legend="type" />
         <Plabel text={form} legend="form" />
         <Quantity {...amount} legend="amount" />
+        {timing && <Quantity {...timing.duration} legend={timing.use} />}
     </div>);
 }

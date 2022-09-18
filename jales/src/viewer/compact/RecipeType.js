@@ -82,6 +82,7 @@ export default function RecipeType(props) {
                     <MashProcedureType {...mash} />
                 </div>
             </section>
+
             {boil &&
                 <section className='row'>
                     <div className='recipe-section-head'>
@@ -92,6 +93,7 @@ export default function RecipeType(props) {
                     </div>
                 </section>
             }
+            
             <section className='row'>
                 <div className='recipe-section-head'>
                     Eff.

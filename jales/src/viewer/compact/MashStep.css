@@ -18,6 +18,7 @@ div.mash-head {
 div.mash-head > :first-child {
     text-align: center;
     background-color: var(--color_a2);
+    padding: 2px 0;
 }
 
 div.mash-desc {
@@ -27,7 +28,7 @@ div.mash-desc {
 
 div.mash-head > :last-child {
     text-align: center;
-    background-color: var(--color_a2);
+    background-color: #a5a5a5;
     font-size: 80%;
 }
 
