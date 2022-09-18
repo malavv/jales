@@ -31,7 +31,7 @@ section.row > div.recipe-section-head {
 }
 
 section.row > div.recipe-section-main {
-    flex: auto;
+    /*flex: auto;*/
 }
 
 div.recipe-section-main > * {

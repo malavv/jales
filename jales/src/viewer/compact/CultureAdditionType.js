@@ -5,7 +5,7 @@ export default function CultureAdditionType({name, type, form, producer, produce
 
     return (<div className="pstack">
         
-        <Plabel text={name} legend={producer} />
+        <Plabel text={name} legend={producer || " "} />
         <Plabel text={type} legend="type" />
         <Plabel text={form} legend="form" />
         <Quantity {...amount} legend="amount" />

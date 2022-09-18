@@ -39,7 +39,7 @@ export default function RecipeType(props) {
         <div className='recipe col'>
             <section className='row'>
                 <div className='recipe-section-head'>
-                    Summary
+                    Recipe
                 </div>
                 <div className='recipe-section-main'>
                     <div className='row'>
@@ -102,6 +102,18 @@ export default function RecipeType(props) {
                     <EfficientyType {...efficiency} />
                 </div>
             </section>
+
+            <section className='row'>
+                <div className='recipe-section-head'>
+                    Temporary Others.
+                </div>
+                <div className='recipe-section-main'>
+                    <div>{JSON.stringify(fermentation)}</div>
+                    <div>{JSON.stringify(packaging)}</div>
+                    <div>{JSON.stringify(taste)}</div>
+                </div>
+            </section>
+
         </div>
     );
 }
