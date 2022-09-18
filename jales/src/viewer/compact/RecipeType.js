@@ -7,6 +7,7 @@ import IngredientsType from './IngredientsType';
 import MashProcedureType from './MashProcedureType';
 import BoilProcedureType from './BoilProcedureType';
 import Plabel from './Plabel';
+import FermentationProcedureType from './FermentationProcedureType';
 
 export default function RecipeType(props) {
     const {
@@ -56,6 +57,7 @@ export default function RecipeType(props) {
                         {color_estimate && <Quantity {...color_estimate} legend="color_estimate" />}
                         {beer_pH && <Quantity {...beer_pH} legend="beer_pH" />}
                         {apparent_attenuation && <Quantity {...apparent_attenuation} legend="apparent_attenuation" />}
+                        {taste && <Plabel text={taste?.notes} legend={`Rating of ${taste?.rating}`} />}
                     </div>
                     {notes && <div>{notes}</div>}
                     {carbonation && <div>{carbonation}</div>}
@@ -103,14 +105,23 @@ export default function RecipeType(props) {
                 </div>
             </section>
 
+            { fermentation &&
+            <section className='row'>
+                <div className='recipe-section-head'>
+                    Ferment.
+                </div>
+                <div className='recipe-section-main'>
+                    <FermentationProcedureType {...fermentation} />
+                </div>
+            </section>
+            }
+
             <section className='row'>
                 <div className='recipe-section-head'>
                     Temporary Others.
                 </div>
                 <div className='recipe-section-main'>
-                    <div>{JSON.stringify(fermentation)}</div>
                     <div>{JSON.stringify(packaging)}</div>
-                    <div>{JSON.stringify(taste)}</div>
                 </div>
             </section>
 
