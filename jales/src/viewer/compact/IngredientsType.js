@@ -8,21 +8,21 @@ export default function IngredientsType({fermentable_additions, hop_additions, m
     return (
     <div className='ingredients'>
         <section>
-            <header>fermentable_additions</header>
+            <header>Fermentables</header>
             <div>
                 {(fermentable_additions ?? []).map(el => <FermentableBase key={el.name} {...el} />)}
             </div>
         </section>
         {miscellaneous_additions &&
         <section>
-            <header>miscellaneous_additions</header>
+            <header>Miscellaneous</header>
             <div>
                 {(miscellaneous_additions ?? []).map(el => <MiscellaneousAdditionType key={el.name} {...el} />)}
             </div>
         </section>
         }
         <section>
-            <header>culture_additions</header>
+            <header>Culture</header>
             <div>
                 {(culture_additions ?? []).map(el => <CultureAdditionType key={el.name} {...el} />)}
             </div>

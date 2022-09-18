@@ -6,7 +6,7 @@ export default function CellLegend({legend, children, className}) {
     return (
     <div className={tt}>
         <div className="cell">{children}</div>
-        <div className="cell-legend">{legend}</div>
+        {legend && <div className="cell-legend">{legend}</div>}
     </div>
     );
 }

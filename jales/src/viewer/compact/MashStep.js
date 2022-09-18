@@ -18,16 +18,19 @@ export default function MashStep({name, type, amount, step_temperature, step_tim
                             <td>{step_time && <Quantity {...step_time} legend="step_time" />}</td>
                             <td>{step_temperature && <Quantity {...step_temperature} legend="step_temperature" />}</td>
                             <td>{water_grain_ratio && <Quantity {...water_grain_ratio} legend="water_grain_ratio" />}</td>
+                            <td>{amount && <Quantity {...amount} legend="amount" />}</td>
                         </tr>
                         <tr>
                             <td>{infuse_temperature && <Quantity {...infuse_temperature} legend="infuse_temperature" />}</td>
-                            <td>{amount && <Quantity {...amount} legend="amount" />}</td>
                             <td>{end_temperature && <Quantity {...end_temperature} legend="end_temperature" />}</td>
+                            <td>{ramp_time && <Quantity {...ramp_time} legend="ramp_time" />}</td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td>{ramp_time && <Quantity {...ramp_time} legend="ramp_time" />}</td>
                             <td>{start_ph && <Quantity {...start_ph} legend="start_ph" />}</td>
                             <td>{end_ph && <Quantity {...end_ph} legend="end_ph" />}</td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>

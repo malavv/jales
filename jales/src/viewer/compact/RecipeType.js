@@ -43,9 +43,10 @@ export default function RecipeType(props) {
                 </div>
                 <div className='recipe-section-main'>
                     <div className='row'>
-                        <Plabel text={name} legend={author || "no author"} className="auto"/>
+                        <Plabel text={name} legend={author} className="auto"/>
                         <div className='recipe-type'>{type}</div>
                     </div>
+                    {style && <StyleBase {...style} />}
                     <div className='recipe-summ row'>
                         <Quantity {...batch_size} legend="batch_size" />
                         {original_gravity && <Quantity {...original_gravity} legend="original_gravity" />}
@@ -56,7 +57,6 @@ export default function RecipeType(props) {
                         {beer_pH && <Quantity {...beer_pH} legend="beer_pH" />}
                         {apparent_attenuation && <Quantity {...apparent_attenuation} legend="apparent_attenuation" />}
                     </div>
-                    {style && <StyleBase {...style} />}
                     {notes && <div>{notes}</div>}
                     {carbonation && <div>{carbonation}</div>}
                     {coauthor && <div>{coauthor}</div>}
