@@ -1,7 +1,7 @@
 import React from 'react';
-import DebugViewer from './debug/DebugViewer';
-import JsonViewer from './json/JsonViewer';
-import CompactViewer from './CompactViewer';
+import DebugViewer from './debug/Viewer';
+import JsonViewer from './json/Viewer';
+import CompactViewer from './compact/Viewer';
 
 export const ViewModes = {
     json: 'json',
@@ -18,12 +18,12 @@ const createViewer = (mode, content) => {
         case ViewModes.compact:
             return (<CompactViewer content={content} />);
         default:
-            console.warn('FileViewer: No/Unrecognized mode selected');
+            const msg = 'FileViewer: Unrecognized mode selected';
+            console.warn(msg);
+            return (<h3>{msg}</h3>);
     }
 }
 
-function FileViewer(props) {
-    return (<main>{createViewer(props.mode ?? 'json', props.content)}</main>);
+export default function FileViewer(props) {
+    return (<main>{createViewer(props.mode, props.content)}</main>);
 }
-
-export default FileViewer

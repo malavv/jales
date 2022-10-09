@@ -8,7 +8,7 @@
  * @param {*} config configuration of the debug viewer.
  * @returns JSX viewer
  */
-export default function DebugViewer({space, content}) {
+export default function Viewer({space, content}) {
     return (
         <pre style={{color: `white`}}>
             {stringify(content, space ?? 2)}

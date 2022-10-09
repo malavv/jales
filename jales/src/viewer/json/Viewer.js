@@ -19,7 +19,7 @@ const regexJson = {
  * @param {*} config configuration of the debug viewer.
  * @returns JSX viewer
  */
-export default function JsonViewer({content, space}) {
+export default function Viewer({content, space}) {
     return (
         <SyntaxHighlighter 
             language="json"

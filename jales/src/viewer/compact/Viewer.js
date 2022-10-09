@@ -1,8 +1,8 @@
-import './CompactViewer.css';
+import './Viewer.css';
 
-import RecipeType from './compact/RecipeType';
+import RecipeType from './RecipeType';
 
-function CompactViewer({content}) {
+export default function Viewer({content}) {
     return (
     <div className="compact-viewer">
         <RecipeType {...content?.beerjson?.recipes[0]} />
@@ -11,5 +11,3 @@ function CompactViewer({content}) {
         </div>
     </div>);
 };
-
-export default CompactViewer;
