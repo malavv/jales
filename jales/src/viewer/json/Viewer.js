@@ -1,5 +1,5 @@
 
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { Prism } from 'react-syntax-highlighter';
 import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 // Based on definition in https://regex101.com/r/tA9pM8/1
@@ -21,13 +21,13 @@ const regexJson = {
  */
 export default function Viewer({content, space}) {
     return (
-        <SyntaxHighlighter 
+        <Prism 
             language="json"
             lineProps={{style: {wordBreak: 'break-all', whiteSpace: 'pre-wrap'}}}
             wrapLines={true} 
             style={a11yDark}>
           {content && adjustPrettyJson(JSON.stringify(content, null, space ?? 2))}
-        </SyntaxHighlighter>
+        </Prism>
     )
 };
 

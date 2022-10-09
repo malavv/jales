@@ -2,14 +2,14 @@ import './App.css';
 
 import React, { useEffect, useState } from 'react';
 
-import Header from './ui/Header';
-import Footer, { FooterStatus } from './ui/Footer';
-import TabList from './ui/TabList';
-import FileViewer, { ViewModes } from './viewer/FileViewer';
+import Header from '../ui/Header';
+import Footer, { FooterStatus } from '../ui/Footer';
+import TabList from '../ui/TabList';
+import FileViewer, { ViewModes } from '../viewer/FileViewer';
 
-import examples from './sources/examples';
-import { AskForUrl } from './util/UserInput';
-import BeerJSON from './sources/BeerJson';
+import examples from '../sources/examples';
+import { AskForUrl } from '../util/UserInput';
+import BeerJSON from '../sources/BeerJson';
 
 export default function App() {
   const [files, setFiles] = useState([]);
