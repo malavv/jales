@@ -6,9 +6,6 @@ div.ingredients > section > header {
     padding-left: 1em;
     font-weight: bold;
 }
-div.ingredients > section > div {
-    margin-left: 2em;
-}
 
 div.ingredients > section > div > * {
     margin-bottom: 1px;

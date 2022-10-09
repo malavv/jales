@@ -116,6 +116,7 @@ export default function RecipeType(props) {
             </section>
             }
 
+            { packaging &&
             <section className='row'>
                 <div className='recipe-section-head'>
                     Temporary Others.
@@ -124,6 +125,7 @@ export default function RecipeType(props) {
                     <div>{JSON.stringify(packaging)}</div>
                 </div>
             </section>
+            }
 
         </div>
     );
