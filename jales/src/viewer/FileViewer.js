@@ -1,5 +1,5 @@
 import React from 'react';
-import DebugViewer from './DebugViewer';
+import DebugViewer from './debug/DebugViewer';
 import JsonViewer from './JsonViewer';
 import CompactViewer from './CompactViewer';
 
