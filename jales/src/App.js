@@ -41,7 +41,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header filename={active}/>
       <TabList 
           tabs={files}
           active={active}

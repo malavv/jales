@@ -1,9 +1,9 @@
 import './Header.css';
 
-function Header() {
+function Header({filename}) {
     return (
         <header>
-            Jales BeerJSON viewer
+            {filename} - Jales viewer
         </header>
     );
 }

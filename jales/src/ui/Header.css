@@ -1,5 +1,6 @@
 Header {
     background-color: var(--color_d);
+    text-align: center;
 }
 
 Header.tab {
