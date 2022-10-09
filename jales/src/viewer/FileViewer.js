@@ -1,6 +1,6 @@
 import React from 'react';
 import DebugViewer from './debug/DebugViewer';
-import JsonViewer from './JsonViewer';
+import JsonViewer from './json/JsonViewer';
 import CompactViewer from './CompactViewer';
 
 export const ViewModes = {

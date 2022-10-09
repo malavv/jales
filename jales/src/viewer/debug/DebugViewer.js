@@ -1,12 +1,12 @@
 /**
- * Debugging Viewer - Dumps recipe content with the least amount of processing
+ * Debug Viewer - Dumps recipe content with the least amount of processing
  * 
  * This viewer has the least requirements, it only asks for an object that
  * (1) doesn't have circular references, (2) doesn't contain a BigInt value.
  * But it prints something in any cases.
  * 
- * @param {*} Config configuration of the debug viewer.
- * @returns 
+ * @param {*} config configuration of the debug viewer.
+ * @returns JSX viewer
  */
 export default function DebugViewer({space, content}) {
     return (
