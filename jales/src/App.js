@@ -29,13 +29,13 @@ export default function App() {
 
   const handleFileChange = active => setActive(active);
   const handleModeChange = mode => setMode(mode);
-  const handleNewFile = () => (async () => {
+  const handleNewFile = async () => {
       // example: https://raw.githubusercontent.com/beerjson/beerjson/master/tests/real/KettleSour.json
       const url = await AskForUrl('Enter BeerJSON file URL. If Github, use raw version');
       const beerJson = await BeerJSON.fromUrl(url);
 
       setFiles([...files, beerJson]);
-  })();
+  };
 
   const recipe = files.find(e => e.id === active);
 
