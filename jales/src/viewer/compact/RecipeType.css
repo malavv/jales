@@ -53,4 +53,5 @@ div.recipe-summ > :last-child {
 
 div.recipe-summ-cell {
     background-color: #bbb;
+    padding-left: 1em;
 }

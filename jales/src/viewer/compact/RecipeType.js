@@ -48,6 +48,7 @@ export default function RecipeType(props) {
                         <Plabel text={name} legend={author} className="auto recipe-title"/>
                         <div className='recipe-type'>{type}</div>
                     </div>
+                    {coauthor && <div className='recipe-summ-cell'>{coauthor}</div>}
                     {style && <StyleBase {...style} />}
                     <div className='recipe-summ row'>
                         <Quantity {...batch_size} legend="batch_size" />
@@ -62,7 +63,6 @@ export default function RecipeType(props) {
                     </div>
                     {notes && <div className='recipe-summ-cell'>{notes}</div>}
                     {carbonation && <div>{carbonation}</div>}
-                    {coauthor && <div>{coauthor}</div>}
                     {created && <div>{created}</div>}
                     {calories_per_pint && <div>{calories_per_pint}</div>}
                 </div>
