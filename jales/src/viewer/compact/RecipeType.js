@@ -60,7 +60,7 @@ export default function RecipeType(props) {
                         {apparent_attenuation && <Quantity {...apparent_attenuation} legend="apparent_attenuation" />}
                         {taste && <Plabel text={taste?.notes} legend={`Rating of ${taste?.rating}`} />}
                     </div>
-                    {notes && <div>{notes}</div>}
+                    {notes && <div className='recipe-summ-cell'>{notes}</div>}
                     {carbonation && <div>{carbonation}</div>}
                     {coauthor && <div>{coauthor}</div>}
                     {created && <div>{created}</div>}
@@ -77,6 +77,7 @@ export default function RecipeType(props) {
                 </div>
             </section>
 
+            {mash &&
             <section className='row'>
                 <div className='recipe-section-head'>
                     Mash
@@ -85,6 +86,7 @@ export default function RecipeType(props) {
                     <MashProcedureType {...mash} />
                 </div>
             </section>
+            }
 
             {boil &&
                 <section className='row'>
@@ -96,7 +98,8 @@ export default function RecipeType(props) {
                     </div>
                 </section>
             }
-            
+
+            { efficiency &&
             <section className='row'>
                 <div className='recipe-section-head'>
                     Eff.
@@ -105,6 +108,7 @@ export default function RecipeType(props) {
                     <EfficientyType {...efficiency} />
                 </div>
             </section>
+            }
 
             { fermentation &&
             <section className='row'>

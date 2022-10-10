@@ -50,3 +50,7 @@ div.recipe-summ > :last-child {
 .recipe-title {
     font-weight: bold;
 }
+
+div.recipe-summ-cell {
+    background-color: #bbb;
+}
