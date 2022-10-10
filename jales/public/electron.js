@@ -1,17 +1,26 @@
 // Module to control the application lifecycle and the native browser window.
-const { app, BrowserWindow, protocol } = require("electron");
+const { app, BrowserWindow, protocol, ipcMain } = require("electron");
 const path = require("path");
 const url = require("url");
+const fs = require("fs");
+
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
+let win;
 
 // Create the native browser window.
 function createWindow() {
-  const mainWindow = new BrowserWindow({
+
+  const filenameArg = app.isPackaged ? (process.argv[1] ?? ''): '';
+
+  win = new BrowserWindow({
     width: 1000,
     height: 1000,
     // Set the path of an additional "preload" script that can be used to
     // communicate between node-land and browser-land.
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
+      additionalArguments: [`--file=${filenameArg}`]
     },
   });
 
@@ -25,11 +34,11 @@ function createWindow() {
         slashes: true,
       })
     : "http://localhost:3000";
-  mainWindow.loadURL(appURL);
+    win.loadURL(appURL);
 
   // Automatically open Chrome's DevTools in development mode.
   if (!app.isPackaged) {
-    mainWindow.webContents.openDevTools();
+    win.webContents.openDevTools();
   }
 }
 
@@ -78,7 +87,7 @@ app.on("window-all-closed", function () {
 // If your app has no need to navigate or only needs to navigate to known pages,
 // it is a good idea to limit navigation outright to that known scope,
 // disallowing any other kinds of navigation.
-/*
+
 const allowedNavigationDestinations = "https://jales.malavv.com";
 app.on("web-contents-created", (event, contents) => {
   contents.on("will-navigate", (event, navigationUrl) => {
@@ -88,7 +97,21 @@ app.on("web-contents-created", (event, contents) => {
       event.preventDefault();
     }
   });
-});*/
+});
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+ipcMain.on("toMain", (event, args) => {
+
+  win.webContents.send("fromMain", args);
+
+  fs.readFile(args, (error, data) => {
+    // Do something with file contents
+
+    // Send result back to renderer process
+    if (error)
+      win.webContents.send("fromMain", error);
+    else
+      win.webContents.send("fromMain", JSON.parse(data));
+  });
+});

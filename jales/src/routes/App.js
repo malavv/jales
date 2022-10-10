@@ -11,13 +11,14 @@ import examples from '../sources/examples';
 import { AskForUrl } from '../util/UserInput';
 import BeerJSON from '../sources/BeerJson';
 
-
-console.log("App.js file ran");
+function getFilename(path) {
+  let sIdx = path.lastIndexOf("/");
+  if (sIdx !== -1)
+    return path.substr(sIdx + 1);
+  return path.substr(path.lastIndexOf("\\") + 1);
+}
 
 export default function App() {
-
-  console.log("App.js was called");
-
   const [files, setFiles] = useState([]);
   const [active, setActive] = useState(null);
   const [beerJsonVer, setBeerJsonVer] = useState('Unknown');
@@ -25,13 +26,40 @@ export default function App() {
   const [status, setStatus] =  useState(FooterStatus.green);
 
   useEffect(() => {
-    const files = examples; // Fetch list of files
-    //const files = []; // Fetch list of files
 
-    setFiles(files);
-    setActive(files[0].id);
-    setBeerJsonVer(files[0].data.beerjson.version);
-    setStatus(FooterStatus.green);
+    if (window.fileArg === '') { // Default to examples
+      console.log("App is starting with file arg:", window.fileArg);
+      const files = examples; // Fetch list of files
+      setFiles(files);
+      setActive(files[0].id);
+      setBeerJsonVer(files[0].data.beerjson.version);
+      setStatus(FooterStatus.green);
+    } else {
+      // Loads file given as arguments if it's there.
+      const fileArg = window.fileArg;
+      console.log(`Load filename ${window.fileArg}`);
+      const fileId = getFilename(fileArg);
+  
+      // Called when message received from main process
+      window.api.receive("fromMain", (data) => {
+        const files = [
+          {
+            id: fileId,
+            lbl: fileId,
+            data: data
+          }
+        ]; // Fetch list of files
+        setFiles(files);
+        setActive(fileId);
+        // Unclear why version is not there.
+        setBeerJsonVer(data.beerjson?.version);
+        setStatus(FooterStatus.green);
+      });
+    
+      // Send a message to the main process
+      window.api.send("toMain", fileArg);    
+    }
+
   }, []);
 
   const handleFileChange = active => {
@@ -49,8 +77,6 @@ export default function App() {
   };
 
   const recipe = files.find(e => e.id === active);
-
-  
 
   return (
     <div className="App">

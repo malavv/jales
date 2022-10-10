@@ -52,7 +52,7 @@
   },
   "build": {
     "appId": "com.malavv.jales",
-    "productName": "Jales Desktop",
+    "productName": "jales",
     "files": [
       "build/**/*",
       "node_modules/**/*"
