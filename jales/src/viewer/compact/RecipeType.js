@@ -54,7 +54,7 @@ export default function RecipeType(props) {
                         {original_gravity && <Quantity {...original_gravity} legend="original_gravity" />}
                         {final_gravity && <Quantity {...final_gravity} legend="final_gravity" />}
                         {alcohol_by_volume && <Quantity {...alcohol_by_volume} legend="alcohol_by_volume" />}
-                        {ibu_estimate && <Plabel text={ibu_estimate?.method} legend="ibu_estimate" />}
+                        {ibu_estimate && <Quantity {...ibu_estimate?.amount} legend="ibu_estimate" />}
                         {color_estimate && <Quantity {...color_estimate} legend="color_estimate" />}
                         {beer_pH && <Quantity {...beer_pH} legend="beer_pH" />}
                         {apparent_attenuation && <Quantity {...apparent_attenuation} legend="apparent_attenuation" />}
