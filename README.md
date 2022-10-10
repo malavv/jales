@@ -27,6 +27,10 @@ An up-to-date version of NodeJS available from the command line. If on Windows `
 
 Go to the inside `jales` folder, and `npm start`. It will open a browser, and will listen for file changes.
 
+## Package app
+
+Replace with procedure. Note using https://mmazzarolo.com/blog/2021-08-12-building-an-electron-application-using-create-react-app/
+
 ## Authors
 
 * Maxime Lavigne (malavv) <duguigne@gmail.com>
