@@ -11,7 +11,13 @@ import examples from '../sources/examples';
 import { AskForUrl } from '../util/UserInput';
 import BeerJSON from '../sources/BeerJson';
 
+
+console.log("App.js file ran");
+
 export default function App() {
+
+  console.log("App.js was called");
+
   const [files, setFiles] = useState([]);
   const [active, setActive] = useState(null);
   const [beerJsonVer, setBeerJsonVer] = useState('Unknown');
@@ -43,6 +49,8 @@ export default function App() {
   };
 
   const recipe = files.find(e => e.id === active);
+
+  
 
   return (
     <div className="App">
