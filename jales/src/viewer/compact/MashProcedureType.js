@@ -10,7 +10,6 @@ export default function MashProcedureType({name, grain_temperature, notes, mash_
     return (<div className="mash-proc col">
 
         <div className='mash-proc-header row'>
-            <div>Mash</div>
             <div className='mash-proc-header-name'>{name}</div>
             {notes && <Plabel text={notes} legend="notes" />}
             <Quantity {...grain_temperature} legend="grain temp" />

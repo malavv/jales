@@ -3,6 +3,7 @@ import './pstack.css';
 import Plabel from './Plabel';
 import Quantity from './Quantity';
 
+// Fermentable **not** fermentation
 export default function FermentableBase(obj) {
     const {name, type, amount, origin, producer, product_id, grain_group, color} = obj;
     const yield_type = obj['yield']; // yield is a reserved keyword.
