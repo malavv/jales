@@ -5,14 +5,13 @@
     padding: 0;
     margin: 0;
     background-color: #252526;
-    height: 3vh;
 }
 
 .TabList li {
     background-color: #2d2d2d;
     color: #626253;
     width: 15em;
-    height: 3vh;
+    height: 1.5em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,5 +26,5 @@
 }
 
 .TabList li.tab-new {
-    width: 3em;
+    width: 1.5em;
 }

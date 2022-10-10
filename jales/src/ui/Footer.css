@@ -1,7 +1,8 @@
 footer {
     display: flex;
     flex-direction: row;
-    justify-content: space-between
+    justify-content: space-between;
+    height: 1.5em;
 }
 
 footer > div.control {

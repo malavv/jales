@@ -16,18 +16,12 @@
 
 main {
   flex: auto;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 Footer {
   height: 1.7vh;
   background-color: var(--color_e);
-}
-
-Header {
-  height: 2.7vh;
-  color: #a5a5a5;
-  font-size: 1.5em;
 }
 
 .row {

@@ -1,8 +1,11 @@
-Header {
+header.app-header {
     background-color: var(--color_d);
-    text-align: center;
-}
+    color: #a5a5a5;
 
-Header.tab {
-    background-color: var(--color_a);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    font-size: 1em;
+    height: 1.5em;
 }

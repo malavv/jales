@@ -1,11 +1,9 @@
 import './Header.css';
 
-function Header({filename}) {
+export default function Header({filename}) {
     return (
-        <header>
-            {filename} - Jales viewer
+        <header className="app-header">
+            <div>{filename} - Jales viewer</div>
         </header>
     );
 }
-
-export default Header

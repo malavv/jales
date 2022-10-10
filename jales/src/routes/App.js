@@ -20,6 +20,7 @@ export default function App() {
 
   useEffect(() => {
     const files = examples; // Fetch list of files
+    //const files = []; // Fetch list of files
 
     setFiles(files);
     setActive(files[0].id);
@@ -27,7 +28,11 @@ export default function App() {
     setStatus(FooterStatus.green);
   }, []);
 
-  const handleFileChange = active => setActive(active);
+  const handleFileChange = active => {
+    const recipe = files.find(f => f.id === active);
+    setActive(recipe.id);
+    setBeerJsonVer(recipe.data.beerjson.version);
+  };
   const handleModeChange = mode => setMode(mode);
   const handleNewFile = async () => {
       // example: https://raw.githubusercontent.com/beerjson/beerjson/master/tests/real/KettleSour.json

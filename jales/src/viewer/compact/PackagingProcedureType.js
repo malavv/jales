@@ -17,8 +17,7 @@ function PackagingVesselType(props) {
         end_ph,
         carbonation,
         vessel_volume,
-        vessel_quantity,
-        graphics
+        vessel_quantity
     } = props;
     return (
     <div className="row">
