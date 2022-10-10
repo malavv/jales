@@ -8,6 +8,7 @@ import MashProcedureType from './MashProcedureType';
 import BoilProcedureType from './BoilProcedureType';
 import Plabel from './Plabel';
 import FermentationProcedureType from './FermentationProcedureType';
+import PackagingProcedureType from './PackagingProcedureType';
 
 export default function RecipeType(props) {
     const {
@@ -119,10 +120,10 @@ export default function RecipeType(props) {
             { packaging &&
             <section className='row'>
                 <div className='recipe-section-head'>
-                    Temporary Others.
+                    Packaging
                 </div>
                 <div className='recipe-section-main'>
-                    <div>{JSON.stringify(packaging)}</div>
+                    <PackagingProcedureType {...packaging} />
                 </div>
             </section>
             }
