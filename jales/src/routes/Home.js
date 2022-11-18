@@ -4,7 +4,8 @@ import { Box, Button, FileInput, Grommet, Heading } from 'grommet';
 
 import Logo from '../assets/logo.jsx';
 
-export default function Home() {
+export default function Home(props) {
+    const { loadFileHdl } = props;
 
     return (
         <Grommet full>
@@ -22,7 +23,7 @@ export default function Home() {
                                 <Button
                                     label="Load Example"
                                     primary
-                                    onClick={() => alert('hello, world')} />
+                                    onClick={() => loadFileHdl('Hello World')} />
                             </Box>
                             <Box pad="medium">
                                 <FileInput
