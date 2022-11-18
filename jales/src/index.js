@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HashRouter, Routes, Route } from "react-router-dom";
-import './index.css';
+
 import reportWebVitals from './reportWebVitals';
 
 import App from './routes/App';
+import Home from './routes/Home';
 import Widgets from './routes/Widgets';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,7 +14,8 @@ root.render(
   
     <HashRouter>
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/" element={<Home />} />
+        <Route path="view/" element={<App />} />
         <Route path="ui/*" element={<Widgets />} />
       </Routes>
     </HashRouter>
