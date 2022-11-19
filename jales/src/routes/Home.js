@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import { Box, Button, FileInput, Grommet, Heading } from 'grommet';
 
 import Logo from '../assets/logo.jsx';
 
 export default function Home(props) {
-    const { loadFileHdl } = props;
-
+    const { loadFileHdl, loadExampleHdl } = props;
     return (
         <Grommet full>
             <Box align="center" background="graph-2" fill>
@@ -23,24 +22,23 @@ export default function Home(props) {
                                 <Button
                                     label="Load Example"
                                     primary
-                                    onClick={() => loadFileHdl('Hello World')} />
+                                    onClick={() => loadExampleHdl() } />
                             </Box>
                             <Box pad="medium">
                                 <FileInput
                                     name="file"
                                     pad="small"
+                                    multiple={false}
                                     onChange={event => {
-                                        const fileList = event.target.files;
-                                        for (let i = 0; i < fileList.length; i += 1) {
-                                            const file = fileList[i];
-                                        }
+                                        const file = event.target.files[0];
+                                        if (file)
+                                            loadFileHdl(file);
                                     }}
                                 />
                             </Box>
                         </Box>
                     </Box>
                 </Box>
-
             </Box>
 
         </Grommet>);

@@ -2,28 +2,20 @@ import App from './routes/App';
 import Home from './routes/Home';
 import Widgets from './routes/Widgets';
 
-import { HashRouter, Routes, Route } from "react-router-dom";
-import { useCallback, useEffect, useState } from 'react';
+import useLoaders from './hooks/useLoaders';
 
 export default function Jales() {
+    const [docs, loadFile, loadExample] = useLoaders();
 
-    const [files, setFiles] = useState([]);
+    const isWidget = false;
+    const isHome = docs.length === 0;
+    const isView = !isHome;
 
-    useEffect(() => {
-        console.log(`Files changed ${files}`);
-    }, [files]);
+    return (<div>
+        {isHome && (<Home loadFileHdl={loadFile} loadExampleHdl={loadExample} />)}
 
-    const loadFile = useCallback((filename) => {
-        setFiles([...files, filename])
-    }, [files, setFiles])
+        {isView && (<App docs={docs} />)}
 
-    return (
-        <HashRouter>
-            <Routes>
-                <Route path="/" element={<Home loadFileHdl={loadFile} />} />
-                <Route path="view/" element={<App />} />
-                <Route path="ui/*" element={<Widgets />} />
-            </Routes>
-        </HashRouter>
-    );
+        {isWidget && (<Widgets />)}
+    </div>);
 }
