@@ -14,10 +14,18 @@
     height: 1.5em;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     cursor: pointer;
     margin-right: 1px;
     user-select: none;
+}
+
+.TabList li div.name {
+    padding-left: 10px;
+}
+
+.TabList li div.close {
+    padding: 0 10px;
 }
 
 .TabList li[active=true] {

@@ -1,17 +1,11 @@
 import medAle from '../examples/MedievalAle.json';
 import bds from '../examples/BrettDosedKegsSaison.json';
 
+import { Doc } from '../model/doc';
+
 const examples = [
-    {
-        id: 'MedievalAle.json',
-        lbl: 'MedievalAle.json',
-        data: medAle,
-    },
-    {
-        id: 'BrettDosedKegsSaison.json',
-        lbl: 'BrettDosedKegsSaison.json',
-        data: bds,
-    }
+    new Doc('MedievalAle.json', medAle),
+    new Doc('BrettDosedKegsSaison.json', bds)
 ];
 
 export default examples;

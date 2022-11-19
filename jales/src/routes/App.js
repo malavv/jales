@@ -1,67 +1,89 @@
 import './App.css';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import Header from '../ui/Header';
 import Footer, { FooterStatus } from '../ui/Footer';
 import TabList from '../ui/TabList';
 import FileViewer, { ViewModes } from '../viewer/FileViewer';
 
-//import { AskForUrl } from '../util/UserInput';
-//import BeerJSON from '../sources/BeerJson';
+import AskUser from '../util/AskUser';
+
+import { Notification } from 'grommet';
 
 
 export default function App(props) {
-  const { docs } = props;
+  const { docs, loadUrl, closeDoc } = props;
+
   const [active, setActive] = useState(null);
   const [beerJsonVer, setBeerJsonVer] = useState('Unknown');
   const [mode, setMode] = useState(ViewModes.compact);
-  const [status, setStatus] =  useState(FooterStatus.green);
+  const [status, setStatus] = useState(FooterStatus.green);
 
+  const [visibleUrlPrompt, setVisibleUrlPrompt] = useState(false);
+  const [toast, setToast] = useState({});
+  const [isToastVisible, setToastVisible] = useState(false);
+
+  // Set of BeerJSON documents or active changed
   useEffect(() => {
-    const a = docs[0];
-    setActive(a?.filename);
-    setBeerJsonVer(a?.data.beerjson.version);
+    if (!active || !docs.has(active)) {
+      setActive(docs.keys().next().value);
+      return;
+    }
+
+    const doc = docs.get(active);
+    setBeerJsonVer(doc?.data.beerjson.version);
     setStatus(FooterStatus.green);
-  }, [docs]);
-  
+  }, [active, docs]);
 
-  const handleFileChange = active => {
-    const recipe = docs.find(f => f.id === active);
-    setActive(recipe.id);
-    setBeerJsonVer(recipe.data.beerjson.version);
-  };
-  const handleModeChange = mode => setMode(mode);
-  const handleNewFile = async () => {
-      // example: https://raw.githubusercontent.com/beerjson/beerjson/master/tests/real/KettleSour.json
-      //const url = await AskForUrl('Enter BeerJSON file URL. If Github, use raw version');
-      //const beerJson = await BeerJSON.fromUrl(url);
+  // User asked to load URL
+  const onAskLoadUrl = useCallback(async (url) => {
+    try {
+      const doc = await loadUrl(url);
+      if (!doc) {
+        setToast({ status: "warning", msg: "BeerJSON is already loaded" });
+        setToastVisible(true);
+      } else {
+        setActive(doc.filename);
+      }
 
-      console.log('setFiles([...docs, beerJson]);');
-  };
+    } catch (err) {
+      console.error(err)
+    } finally {
+      setVisibleUrlPrompt(false);
+    }
 
-  const recipe = docs.find(e => e.id === active);
+  }, [loadUrl, setVisibleUrlPrompt, setToast, setToastVisible]);
+
+  const recipe = docs.get(active);
 
   return (
     <div className="App">
-      <Header filename={active}/>
-      <TabList 
-          tabs={docs}
-          active={active}
-          onChange={handleFileChange}
-          onNewFile={handleNewFile} />
+      <Header filename={active} />
 
-      <FileViewer 
-          mode={mode}
-          name={active} 
-          content={recipe && recipe.data} />
+      <TabList
+        tabs={docs.keys()}
+        active={active}
+        tabClickedHdl={(active) => setActive(active)}
+        closeTabHdl={closeDoc}
+        askLoadUrl={() => setVisibleUrlPrompt(true)} />
+
+      <FileViewer
+        mode={mode}
+        name={active}
+        content={recipe && recipe.data} />
 
       <Footer
-          status={status}
-          mode={mode}
-          beerJsonVer={beerJsonVer}
-          modes={Object.values(ViewModes)}
-          onModeChange={handleModeChange} />
+        status={status}
+        mode={mode}
+        beerJsonVer={beerJsonVer}
+        modes={Object.values(ViewModes)}
+        onModeChange={mode => setMode(mode)} />
+
+      {isToastVisible && <Notification toast status={toast.status} title={toast.msg} onClose={() => setToastVisible(false) } />}
+
+      <AskUser visible={visibleUrlPrompt} title="Load from URL" submitLbl="Load File" onSubmit={onAskLoadUrl} />
     </div>
   );
 }
+// onClose={setToastVisible(false)}

@@ -1,13 +1,17 @@
 import React from 'react';
 
-import { Box, Button, FileInput, Grommet, Heading } from 'grommet';
+import { Box, Button, FileInput, Heading } from 'grommet';
 
 import Logo from '../assets/logo.jsx';
 
 export default function Home(props) {
-    const { loadFileHdl, loadExampleHdl } = props;
+    const { loadFile, loadExample } = props;
+
+    const onLoadEx = () => loadExample();
+    // TODO: Handle error from wrong file.
+    const onLoadFiles = (e) => loadFile(e.target.files[0]);
+
     return (
-        <Grommet full>
             <Box align="center" background="graph-2" fill>
 
                 <Box flex align='center' justify='center' direction='row'>
@@ -22,24 +26,18 @@ export default function Home(props) {
                                 <Button
                                     label="Load Example"
                                     primary
-                                    onClick={() => loadExampleHdl() } />
+                                    onClick={onLoadEx} />
                             </Box>
                             <Box pad="medium">
                                 <FileInput
                                     name="file"
                                     pad="small"
                                     multiple={false}
-                                    onChange={event => {
-                                        const file = event.target.files[0];
-                                        if (file)
-                                            loadFileHdl(file);
-                                    }}
+                                    onChange={onLoadFiles}
                                 />
                             </Box>
                         </Box>
                     </Box>
                 </Box>
-            </Box>
-
-        </Grommet>);
+            </Box>);
 }

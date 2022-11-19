@@ -2,20 +2,24 @@ import App from './routes/App';
 import Home from './routes/Home';
 import Widgets from './routes/Widgets';
 
-import useLoaders from './hooks/useLoaders';
+import { Grommet } from 'grommet';
+
+import useLoaders from './hooks/useDocuments';
 
 export default function Jales() {
-    const [docs, loadFile, loadExample] = useLoaders();
+    const [docs, loadFile, loadExample, loadUrl, closeDoc] = useLoaders();
 
     const isWidget = false;
-    const isHome = docs.length === 0;
+    const isHome = docs.size === 0;
     const isView = !isHome;
 
-    return (<div>
-        {isHome && (<Home loadFileHdl={loadFile} loadExampleHdl={loadExample} />)}
+    return (<Grommet full>
+        {isHome && 
+            <Home loadFile={loadFile} loadExample={loadExample} />}
 
-        {isView && (<App docs={docs} />)}
+        {isView && 
+            <App docs={docs} loadUrl={loadUrl} closeDoc={closeDoc} />}
 
         {isWidget && (<Widgets />)}
-    </div>);
+    </Grommet>);
 }

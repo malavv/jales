@@ -8,25 +8,19 @@ import Tab from './Tab';
  * @returns 
  */
 function TabList(props) {
-    const handleClick = (id) => {
-        if (props.active === id)
-            return;
-            
-        props.onChange(id);
-    }
+
+    const { askLoadUrl, tabs, active, tabClickedHdl, closeTabHdl } = props;
+
+    const toDocumentTab = 
+        (filename) => <Tab key={filename} active={filename === active} filename={filename} onClick={tabClickedHdl} onClose={closeTabHdl} />
 
     return (
         <ul className="TabList">
-            {props.tabs.map(el => (
-            <Tab 
-                key={el.id}
-                active={el.id === props.active} 
-                lbl={el.lbl}
-                onClick={() => handleClick(el.id)} />))}
-            <li key={-1} className="tab-new"
-                onClick={props.onNewFile}>
-                +
-            </li>
+            {/* Active Tabs */}
+            {[...tabs].map(doc => toDocumentTab(doc))}
+
+            {/* New Tab by URL */}
+            <li key={-1} className="tab-new" onClick={askLoadUrl}>+</li>
         </ul>
     );
 }
