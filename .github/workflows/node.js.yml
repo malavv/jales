@@ -36,8 +36,6 @@ jobs:
         working-directory: jales
       - run: npm test
         working-directory: jales
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
         
   # Deployment job
   deploy:
