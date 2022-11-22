@@ -32,3 +32,5 @@ jobs:
       working-directory: jales
     - run: npm test
       working-directory: jales
+    - run: npm run deploy
+      working-directory: jales
