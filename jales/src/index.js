@@ -11,7 +11,7 @@ import {
 const router = createBrowserRouter([
     { path: "/", element: <Jales /> },
     { path: "/ui", element: <Widgets /> },
-]);
+], { basename: /localhost/.test(window.location.href) ? '' : '/jales' });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
