@@ -1,6 +1,6 @@
 import './App.css';
 
-import React, { useState, useEffect, useCallback, useContext } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import Footer, { FooterStatus } from '../ui/Footer';
 import TabList from '../ui/TabList';
