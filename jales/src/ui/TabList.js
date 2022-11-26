@@ -2,6 +2,9 @@ import './TabList.css';
 import React from 'react';
 import Tab from './Tab';
 
+import { NewWindow } from 'grommet-icons';
+import { Box } from 'grommet';
+
 /**
  * Creates a list of tabs to switch between.
  * @param {{active:string, onChange:function, tabs:{id:string, lbl:string}}} props Tab info.
@@ -20,7 +23,9 @@ function TabList(props) {
             {[...tabs].map(doc => toDocumentTab(doc))}
 
             {/* New Tab by URL */}
-            <li key={-1} className="tab-new" onClick={askLoadUrl}>+</li>
+            <Box onClick={askLoadUrl} background='dark-3' pad='small' focusIndicator={false}>
+                <NewWindow size='small' />
+            </Box>
         </ul>
     );
 }
