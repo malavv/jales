@@ -2,7 +2,6 @@ import './App.css';
 
 import React, { useState, useEffect, useCallback, useContext } from 'react';
 
-import Header from '../ui/Header';
 import Footer, { FooterStatus } from '../ui/Footer';
 import TabList from '../ui/TabList';
 import FileViewer, { ViewModes } from '../viewer/FileViewer';
@@ -10,6 +9,7 @@ import FileViewer, { ViewModes } from '../viewer/FileViewer';
 import AskUser from '../util/AskUser';
 
 import { toast } from 'react-toastify';
+import { Header, Heading, Box } from 'grommet';
 
 export default function App(props) {
   const { docs, loadUrl, closeDoc } = props;
@@ -55,7 +55,12 @@ export default function App(props) {
 
   return (
     <div className="App">
-      <Header filename={active} />
+      
+      <Header background='brand' justify='center'>
+        <Box align='center'>
+          <Heading level="4" margin="xxsmall">{active} - Jales viewer</Heading>
+        </Box>       
+      </Header>
 
       <TabList
         tabs={[...docs.keys()]}
