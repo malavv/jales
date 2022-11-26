@@ -1,6 +1,6 @@
 import './App.css';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useContext } from 'react';
 
 import Header from '../ui/Header';
 import Footer, { FooterStatus } from '../ui/Footer';
@@ -9,8 +9,7 @@ import FileViewer, { ViewModes } from '../viewer/FileViewer';
 
 import AskUser from '../util/AskUser';
 
-import { Notification } from 'grommet';
-
+import { toast } from 'react-toastify';
 
 export default function App(props) {
   const { docs, loadUrl, closeDoc } = props;
@@ -21,8 +20,6 @@ export default function App(props) {
   const [status, setStatus] = useState(FooterStatus.green);
 
   const [visibleUrlPrompt, setVisibleUrlPrompt] = useState(false);
-  const [toast, setToast] = useState({});
-  const [isToastVisible, setToastVisible] = useState(false);
 
   // Set of BeerJSON documents or active changed
   useEffect(() => {
@@ -41,8 +38,7 @@ export default function App(props) {
     try {
       const doc = await loadUrl(url);
       if (!doc) {
-        setToast({ status: "warning", msg: "BeerJSON is already loaded" });
-        setToastVisible(true);
+        toast.warn('BeerJSON is already loaded');
       } else {
         setActive(doc.filename);
       }
@@ -53,7 +49,7 @@ export default function App(props) {
       setVisibleUrlPrompt(false);
     }
 
-  }, [loadUrl, setVisibleUrlPrompt, setToast, setToastVisible]);
+  }, [loadUrl, setVisibleUrlPrompt]);
 
   const recipe = docs.get(active);
 
@@ -62,7 +58,7 @@ export default function App(props) {
       <Header filename={active} />
 
       <TabList
-        tabs={docs.keys()}
+        tabs={[...docs.keys()]}
         active={active}
         tabClickedHdl={(active) => setActive(active)}
         closeTabHdl={closeDoc}
@@ -79,8 +75,6 @@ export default function App(props) {
         beerJsonVer={beerJsonVer}
         modes={Object.values(ViewModes)}
         onModeChange={mode => setMode(mode)} />
-
-      {isToastVisible && <Notification toast status={toast.status} title={toast.msg} onClose={() => setToastVisible(false) } />}
 
       <AskUser visible={visibleUrlPrompt} title="Load from URL" submitLbl="Load File" onSubmit={onAskLoadUrl} />
     </div>
